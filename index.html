@@ -1,83 +1,188 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<!-- VERSION 23/11/25 -->
-
 <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>shklr.org</title>
-    <meta name="description"
-        content="">
-    <meta name="author" content="sergioSHKLR, info@doutrina.org">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Russo+One&display=swap" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" rel="stylesheet">
-   
-    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-    <style>
-        body {
-            background-color: #222;
-            color: #fff;
-        }
-
-        .center {
-            margin: 0;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 18px;
-            font-family: 'Inter';
-            text-align: center;
-        }
-
-        a:any-link {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .center a:hover {
-            text-decoration: underline !important;
-            text-underline-offset: 3px;
-        }
-
-        #brand {
-            border: none;
-            border-collapse: collapse;
-            border-radius: 5px;
-            box-sizing: border-box;
-            color: currentColor;
-            font-family: 'Russo One', sans-serif;
-            font-size: 24px;
-            padding-bottom: 5px;
-            padding-left: 0;
-            vertical-align: middle;
-            text-decoration: none !important
-        }
-
-        .emoji {font-family: 'Noto Color Emoji';}
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>shklr.org</title>
+  <meta name="description" content="SHKLR Foundation — moral and ethical education. Português e English.">
+  <meta name="author" content="sergioSHKLR, sergio@doutrina.org">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Russo+One&family=Noto+Color+Emoji&display=swap" rel="stylesheet">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #222;
+      --fg: #fff;
+      --muted: #bdbdbd;
+      --line: #444;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 18px;
+      line-height: 1.55;
+    }
+    .wrap {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 3rem 1.25rem 4rem;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    #brand {
+      font-family: "Russo One", sans-serif;
+      font-size: 1.5rem;
+      margin: 0 0 1rem;
+    }
+    .emoji { font-family: "Noto Color Emoji", sans-serif; }
+    .langs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .langs button {
+      appearance: none;
+      background: transparent;
+      color: var(--fg);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      font: inherit;
+      cursor: pointer;
+    }
+    .langs button[aria-pressed="true"] {
+      border-color: #fff;
+      font-weight: 600;
+    }
+    .langs button:hover { text-decoration: underline; text-underline-offset: 3px; }
+    h1 { font-size: 1.35rem; font-weight: 600; margin: 0 0 1rem; }
+    p { margin: 0 0 1rem; }
+    .muted { color: var(--muted); font-size: 0.95rem; }
+    .sign {
+      text-align: right;
+      margin: 1.5rem 0 2rem;
+    }
+    .sign .names {
+      font-size: 1.15rem;
+      margin: 0.25rem 0 0;
+    }
+    nav.projects a {
+      display: block;
+      color: var(--fg);
+      text-decoration: none;
+      border-top: 1px solid var(--line);
+      padding: 0.85rem 0;
+    }
+    nav.projects a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    nav.projects strong { display: block; }
+    footer {
+      margin-top: 2.5rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+    footer a { color: inherit; }
+    [hidden] { display: none !important; }
+  </style>
 </head>
-
 <body>
+  <div class="wrap">
+    <header>
+      <p id="brand"><span class="emoji" aria-hidden="true">⭕</span> shklr.org</p>
+      <div class="langs" role="group" aria-label="Language">
+        <button type="button" id="btn-pt" data-lang="pt" aria-pressed="true"> 🇧🇷 PT</button>
+        <button type="button" id="btn-en" data-lang="en" aria-pressed="false"> 🇺🇸 EN</button>
+      </div>
+    </header>
 
+    <main id="panel-pt" lang="pt-BR">
+      <h1>Educação moral e ética</h1>
+      <p>Juntos desde 2010, todo dia tentamos nos aperfeiçoar na moralidade e na intelectualidade. Frequentemente falhamos — com nós mesmos, um com o outro, com amigos e com as famílias.</p>
+      <p>Ainda assim, tentamos aprender com os erros e seguir em frente, aconselhados pelos mentores e confiantes no amor e na misericórdia de Deus.</p>
+      <p>Use e compartilhe os projetos com quem pensa de modo semelhante.</p>
+      <div class="sign">
+        <p><span class="emoji" aria-hidden="true">🙏</span> Confiem em Deus</p>
+        <p class="names">Mai & Sergio</p>
+      </div>
+      <nav class="projects" aria-label="Projetos">
+        <a href="https://doutrina.org">
+          <strong><span class="emoji" aria-hidden="true">💧</span> doutrina.org</strong>
+          <span class="muted">Codificação Kardec — estudo integrado</span>
+        </a>
+        <a href="https://librus.app">
+          <strong><span class="emoji" aria-hidden="true">📖</span> librus.app</strong>
+          <span class="muted">Leitor LIBRUS — Ache · Leia · Consulte · Anote</span>
+        </a>
+        <a href="https://centro.doutrina.org">
+          <strong><span class="emoji" aria-hidden="true">🏠</span> centro.doutrina.org</strong>
+          <span class="muted">Instância de centro + codificação</span>
+        </a>
+      </nav>
+    </main>
 
+    <main id="panel-en" lang="en" hidden>
+      <h1>Moral and ethical education</h1>
+      <p>Together since 2010, we try every day to improve morally and intellectually. We often fail — with ourselves, with each other, with friends, and with our families.</p>
+      <p>Still we try to learn from the mistakes and keep going, advised by our mentors and trusting in God’s love and mercy.</p>
+      <p>Please use and share the projects with others of like mind.</p>
+      <div class="sign">
+        <p><span class="emoji" aria-hidden="true">🙏</span> Trust in God</p>
+        <p class="names">Mai & Sergio</p>
+      </div>
+      <nav class="projects" aria-label="Projects">
+        <a href="https://doutrina.org">
+          <strong><span class="emoji" aria-hidden="true">💧</span> doutrina.org</strong>
+          <span class="muted">Kardec codification — integrated study</span>
+        </a>
+        <a href="https://librus.app">
+          <strong><span class="emoji" aria-hidden="true">📖</span> librus.app</strong>
+          <span class="muted">LIBRUS reader — Find · Read · Lookup · Note</span>
+        </a>
+        <a href="https://centro.doutrina.org">
+          <strong><span class="emoji" aria-hidden="true">🏠</span> centro.doutrina.org</strong>
+          <span class="muted">Center instance + codification</span>
+        </a>
+      </nav>
+    </main>
 
-    <div class="center">
-        <p id="brand"><span class="emoji">⭕</span> shklr.org</p>
+    <footer>
+      <p>SHKLR Foundation · <a href="mailto:sergio@doutrina.org">sergio@doutrina.org</a></p>
+      <p>Non-commercial. No donations solicited or accepted.</p>
+    </footer>
+  </div>
+  <script>
+    const KEY = "shklr-lang";
+    const panels = { pt: document.getElementById("panel-pt"), en: document.getElementById("panel-en") };
+    const buttons = { pt: document.getElementById("btn-pt"), en: document.getElementById("btn-en") };
 
-        <p><span class="emoji">🇧🇷</span> <a href="https://pt.shklr.org">Português Brasileiro (Lançado, versão 11.23)</a>
+    function apply(lang) {
+      const next = lang === "en" ? "en" : "pt";
+      document.documentElement.lang = next === "pt" ? "pt-BR" : "en";
+      panels.pt.hidden = next !== "pt";
+      panels.en.hidden = next !== "en";
+      buttons.pt.setAttribute("aria-pressed", String(next === "pt"));
+      buttons.en.setAttribute("aria-pressed", String(next === "en"));
+      try { localStorage.setItem(KEY, next); } catch (e) {}
+    }
 
-            <br><br>
+    let start = "pt";
+    try {
+      const saved = localStorage.getItem(KEY);
+      if (saved === "en" || saved === "pt") start = saved;
+      else if (/^en\b/i.test(navigator.language || "")) start = "en";
+    } catch (e) {}
+    apply(start);
 
-        <span class="emoji">🇺🇸</span> <a href="https://en.shklr.org">American English (Still in Development)</a>
-        </p>
-
-        <p>🗓️ 2023-Nov-25</p>
-    </div>
-
+    buttons.pt.addEventListener("click", () => apply("pt"));
+    buttons.en.addEventListener("click", () => apply("en"));
+  </script>
 </body>
-
 </html>
