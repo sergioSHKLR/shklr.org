@@ -93,6 +93,19 @@ function closeViewer(){ if (!viewer) return; viewer.classList.remove("is-open");
 function openViewer(){ if (settings.classList.contains("is-open")) closeSettings(); if (contact.classList.contains("is-open")) closeContact(); viewer.hidden = false; scrim.hidden = false; requestAnimationFrame(() => { scrim.classList.add("is-open"); viewer.classList.add("is-open"); }); }
 const closeV = document.getElementById("btn-close-viewer");
 if (closeV) closeV.addEventListener("click", closeViewer);
+document.querySelectorAll("[data-portrait]").forEach((btn) => {
+ btn.addEventListener("click", () => {
+  const src = btn.getAttribute("data-portrait");
+  if (!src || !viewerImg) return;
+  const en = document.documentElement.lang === "en";
+  if (viewerTitle) viewerTitle.textContent = (en ? btn.dataset.portraitTitleEn : btn.dataset.portraitTitlePt) || "";
+  if (viewerFrame) { viewerFrame.hidden = true; viewerFrame.removeAttribute("src"); }
+  viewerImg.hidden = false;
+  viewerImg.alt = (btn.querySelector("img") && btn.querySelector("img").alt) || "";
+  viewerImg.src = src;
+  openViewer();
+ });
+});
 document.querySelectorAll(".tl button").forEach((btn) => {
  btn.addEventListener("click", () => {
  const open = btn.getAttribute("aria-expanded") === "true";
