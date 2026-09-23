@@ -1,0 +1,23 @@
+name: embed-portrait
+on:
+  push:
+    paths:
+      - ".github/portrait.b64.*"
+      - ".github/workflows/embed-portrait.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  write:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Decode portrait
+        run: |
+          mkdir -p images
+          cat .github/portrait.b64.* | tr -d '\n' | base64 -d > images/us-round.jpg
+          ls -la images/us-round.jpg
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Restore high-res us-round.jpg
+          file_pattern: images/us-round.jpg
