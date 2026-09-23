@@ -214,7 +214,6 @@ html[data-theme="dark"] #mail-link:hover { background: rgba(255,255,255,.08); }
  <p class="legal">Sem fins lucrativos. Nenhuma doação é pedida ou aceita. Edição digital educacional e gratuita para estudo da Doutrina Espírita.</p>
 <p class="legal">O texto francês de Allan Kardec (falecido em 1869) está em domínio público. As traduções históricas usadas no PDF das cinco obras básicas são de Guillon Ribeiro (26/10/1943; domínio público no Brasil desde 01/01/2014) e de Manuel Quintão (16/12/1955; domínio público no Brasil desde 01/01/2026), Lei 9.610/1998 art. 41 e 45. O mesmo vale para o capítulo 28 do Evangelho (Livro de Preces).</p>
 <p class="legal">Este site não detém direitos sobre Kardec, sobre a Bíblia, nem sobre marcas, capas ou edições contemporâneas da FEB. Nomes de instituições não são endosso. Citações curtas: art. 46. Proibida a venda.</p>
- <p><button type="button" class="card neutral" id="btn-contact-pt" style="width:100%;cursor:pointer;font:inherit;text-align:left"><span><strong>Mensagem</strong><span class="muted">Formulário público</span></span></button></p>
  </main>
  <main id="panel-en" lang="en" hidden>
  <h1>Moral and ethical education</h1>
@@ -258,7 +257,6 @@ html[data-theme="dark"] #mail-link:hover { background: rgba(255,255,255,.08); }
  <p class="legal">Not for profit. No donations asked or accepted. Free educational digital edition for the study of Spiritist doctrine.</p>
 <p class="legal">Allan Kardec’s French text (d. 1869) is in the public domain. The historical Portuguese translations in the five-works PDF are by Guillon Ribeiro (26 Oct 1943; public domain in Brazil since 1 Jan 2014) and Manuel Quintão (16 Dec 1955; public domain in Brazil since 1 Jan 2026), Law 9.610/1998 arts. 41 and 45. The same applies to Gospel chapter 28 (Book of Prayers).</p>
 <p class="legal">This site claims no rights in Kardec, the Bible, or contemporary FEB marks, covers, or editions. Institutional names are not endorsements. Short quotations: art. 46. Sale is not allowed.</p>
- <p><button type="button" class="card neutral" id="btn-contact-en" style="width:100%;cursor:pointer;font:inherit;text-align:left"><span><strong>Message</strong><span class="muted">Public form</span></span></button></p>
  </main>
  <footer class="notes">
  <p>SHKLR · family name, independent project</p>
@@ -409,7 +407,7 @@ html[data-theme="dark"] #mail-link:hover { background: rgba(255,255,255,.08); }
         if (!settings.classList.contains("is-open") && !contact.classList.contains("is-open")) scrim.hidden = true;
       }, 240);
     }
-    ["btn-contact-pt", "btn-contact-en", "btn-contact-bar"].forEach((id) => {
+    ["btn-contact-bar"].forEach((id) => {
       const el = document.getElementById(id);
       if (el) el.addEventListener("click", (e) => { e.stopPropagation(); openContact(); });
     });
