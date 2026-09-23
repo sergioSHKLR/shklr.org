@@ -1,0 +1,73 @@
+name: family-header
+on:
+  push:
+    paths:
+      - ".github/workflows/family-header.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  header:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          t = p.read_text()
+          css = '''
+    #mast {
+      box-sizing: border-box;
+      width: 100%;
+      margin: 0;
+      padding: 1.5rem 1.25rem 1.25rem;
+      background: #fff;
+      color: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: .35rem;
+      border-bottom: 1px solid var(--line);
+      font-family: var(--sans);
+    }
+    html[data-theme="dark"] #mast { background: #111; color: #f0f0f0; border-bottom-color: #333; }
+    @media (prefers-color-scheme: dark) {
+      html[data-theme="sys"] #mast { background: #111; color: #f0f0f0; border-bottom-color: #333; }
+    }
+    #mast .library-mark { width: 56px; height: 56px; color: #cc0000; display: flex; align-items: center; justify-content: center; }
+    #mast .library-mark svg { width: 56px; height: 56px; }
+    #mast h1 {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      line-height: 1.2;
+    }
+    #mast .library-cta { margin: 0; font-size: .9rem; color: #555; font-weight: 400; letter-spacing: 0; }
+    html[data-theme="dark"] #mast .library-cta { color: #a0a0a0; }
+    @media (prefers-color-scheme: dark) {
+      html[data-theme="sys"] #mast .library-cta { color: #a0a0a0; }
+    }
+    #bar-title { font-size: 1rem; letter-spacing: .1em; }
+'''
+          if '#mast {' not in t:
+              t = t.replace('    [hidden] { display: none !important; }', css + '    [hidden] { display: none !important; }')
+          old = '''    <header>\n      <p id="brand"><i data-lucide="circle" class="logo-mark" aria-hidden="true"></i> shklr</p>\n      <p class="tag" id="tagline-pt">Projeto independente — não é entidade registrada</p>\n      <p class="tag" id="tagline-en" hidden>Independent project — not a registered entity</p>\n    </header>'''
+          new = '''    <header id="mast">\n      <div class="library-mark" aria-hidden="true"><i data-lucide="circle" class="logo-mark"></i></div>\n      <h1 id="brand"><span>shklr</span></h1>\n      <p class="library-cta" id="tagline-pt">Projeto independente — não é entidade registrada</p>\n      <p class="library-cta" id="tagline-en" hidden>Independent project — not a registered entity</p>\n    </header>'''
+          if old not in t:
+              raise SystemExit('header block not found')
+          t = t.replace(old, new, 1)
+          # drop leftover #brand rules that fight the mast
+          t = t.replace('#brand { font-family: "Russo One", sans-serif; font-size: 1.45rem; letter-spacing: 0.04em; margin: 0 0 .35rem; display: inline-flex; align-items: center; justify-content: center; gap: .45rem; }', '')
+          p.write_text(t)
+          assert 'id="mast"' in t and '#mast {' in t
+          print('ok')
+          PY
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Match family header and enlarge shklr brand
+          file_pattern: index.html
