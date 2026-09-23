@@ -17,7 +17,7 @@ jobs:
       - name: Restore last good index if needed
         run: |
           if grep -q PLACEHOLDER index.html || ! grep -q 'class="thumb"' index.html; then
-            git checkout 02611d23000a5b9566afbc51801c04aaebcde64e -- index.html
+            git checkout bba96eb16ac8e236cdc77a36ec19e10a5ddd1f03 -- index.html
           fi
           python3 scripts/patch_assets.py
       - uses: stefanzweifel/git-auto-commit-action@v5
