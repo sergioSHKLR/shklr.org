@@ -1,0 +1,35 @@
+name: wire-local-images
+on:
+  push:
+    paths:
+      - ".github/workflows/wire-local-images.yml"
+      - "images/**"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  wire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Point thumbs and PNG downloads at images/
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          t = p.read_text()
+          repl = {
+            'https://pt.shklr.org/framework/preces.png': './images/preces.png',
+            'https://pt.shklr.org/framework/obras-basicas.png': './images/obras-b%C3%A1sicas.png',
+            'https://pt.shklr.org/framework/protector.png': './images/protector-portrait.png',
+            'https://pt.shklr.org/framework/anguish.png': './images/anguish-portrait.png',
+          }
+          for old, new in repl.items():
+              t = t.replace(old, new)
+          p.write_text(t)
+          print('wired', sum(t.count(v) for v in repl.values()))
+          PY
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Wire local poster images from images/
+          file_pattern: index.html
