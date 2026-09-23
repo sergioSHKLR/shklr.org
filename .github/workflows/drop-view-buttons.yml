@@ -1,0 +1,46 @@
+name: drop-view-buttons
+on:
+  push:
+    paths:
+      - ".github/workflows/drop-view-buttons.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  drop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          p = Path('index.html')
+          t = p.read_text()
+          # remove view/mostrar PDF and PNG action cards
+          t = re.sub(
+              r'<a class="card neutral" href="https://github.com/sergioSHKLR/shklr.org/blob/main/[^"]+">[^<]*</a>',
+              '',
+              t,
+          )
+          t = re.sub(
+              r'<a class="card neutral" href="\./images/[^"]+"(?![^>]*download)>[^<]*</a>',
+              '',
+              t,
+          )
+          # unwrap thumb links so the image is not a view button
+          t = re.sub(
+              r'<a href="(\./images/[^"]+)"[^>]*>\s*(<img class="thumb"[^>]+>)\s*</a>',
+              r'\2',
+              t,
+          )
+          t = re.sub(r' +', ' ', t)
+          p.write_text(t)
+          assert 'mostrar PDF' not in t and 'view PDF' not in t
+          assert 'mostrar PNG' not in t and 'view PNG' not in t
+          print('downloads', t.count('download='))
+          PY
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Remove view PDF and view PNG buttons
+          file_pattern: index.html
