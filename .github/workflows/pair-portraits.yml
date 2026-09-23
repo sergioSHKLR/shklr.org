@@ -1,0 +1,45 @@
+name: pair-portraits
+on:
+  push:
+    paths:
+      - ".github/workflows/pair-portraits.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore last good index and add portrait pair
+        run: |
+          git checkout ae37185f0825f82ef3ffc558e4290de3628fe77c -- index.html
+          python3 <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          t = p.read_text(encoding='utf-8')
+          if len(t) < 2000:
+              raise SystemExit('restored index too small')
+          old_css = ' .sign img { width: 280px; height: 280px; border-radius: 50%; object-fit: cover; }'
+          new_css = ' .sign .pair { display: inline-flex; gap: .7rem; justify-content: flex-end; align-items: center; }\n .sign img { width: 168px; height: 168px; border-radius: 50%; object-fit: cover; }'
+          if old_css not in t:
+              raise SystemExit('css missing')
+          t = t.replace(old_css, new_css, 1)
+          pt_old = '<div class="sign"><p>Confiem em Deus</p><p class="names">Mai & Sergio</p><a href="./images/us-round.png"><img src="./images/us-round.png" width="280" height="280" alt="Mai e Sergio"></a></div>'
+          pt_new = '<div class="sign"><p>Confiem em Deus</p><p class="names">Mai & Sergio</p><div class="pair"><a href="./images/us-round.png"><img src="./images/us-round.png" width="168" height="168" alt="Mai e Sergio \u2014 foto"></a><a href="./images/us-round-illustrated.jpg"><img src="./images/us-round-illustrated.jpg" width="168" height="168" alt="Mai e Sergio \u2014 ilustra\u00e7\u00e3o"></a></div></div>'
+          en_old = '<div class="sign"><p>Trust in God</p><p class="names">Mai & Sergio</p><a href="./images/us-round.png"><img src="./images/us-round.png" width="280" height="280" alt="Mai and Sergio"></a></div>'
+          en_new = '<div class="sign"><p>Trust in God</p><p class="names">Mai & Sergio</p><div class="pair"><a href="./images/us-round.png"><img src="./images/us-round.png" width="168" height="168" alt="Mai and Sergio \u2014 photo"></a><a href="./images/us-round-illustrated.jpg"><img src="./images/us-round-illustrated.jpg" width="168" height="168" alt="Mai and Sergio \u2014 illustration"></a></div></div>'
+          if pt_old not in t:
+              raise SystemExit('pt sign missing')
+          if en_old not in t:
+              raise SystemExit('en sign missing')
+          t = t.replace(pt_old, pt_new, 1).replace(en_old, en_new, 1)
+          p.write_text(t, encoding='utf-8')
+          print('bytes', len(t), 'pair', t.count('class="pair"'), 'illustrated', t.count('us-round-illustrated.jpg'))
+          PY
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Show photo and illustrated portraits side by side in .sign
+          file_pattern: index.html
