@@ -14,10 +14,24 @@ jobs:
       - uses: actions/checkout@v4
       - name: Decode portrait
         run: |
+          set -euo pipefail
+          shopt -s nullglob
+          parts=(.github/portrait.b64.*)
+          if [ ${#parts[@]} -eq 0 ]; then
+            echo "No portrait.b64 parts yet"
+            exit 0
+          fi
           mkdir -p images
-          cat .github/portrait.b64.* | tr -d '\n' | base64 -d > images/us-round.jpg
-          ls -la images/us-round.jpg
+          cat "${parts[@]}" | tr -d '\n' | base64 -d > images/us-round.jpg
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          jpg = Path('images/us-round.jpg')
+          im = Image.open(jpg).convert('RGB')
+          im.save('images/us-round.png', format='PNG', optimize=True)
+          print(jpg.stat().st_size, Path('images/us-round.png').stat().st_size, im.size)
+          PY
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Restore high-res us-round.jpg
-          file_pattern: images/us-round.jpg
+          commit_message: Illustrated us-round portrait without car interior
+          file_pattern: images/us-round.jpg images/us-round.png
