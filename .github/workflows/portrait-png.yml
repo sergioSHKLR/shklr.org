@@ -1,0 +1,27 @@
+name: portrait-png
+on:
+  push:
+    paths:
+      - ".github/workflows/portrait-png.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  wire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          t = p.read_text().replace('./images/us-round.jpg', './images/us-round.png')
+          p.write_text(t)
+          assert t.count('./images/us-round.png') >= 2
+          assert './images/us-round.jpg' not in t
+          print('ok', t.count('./images/us-round.png'))
+          PY
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Point portrait at images/us-round.png
+          file_pattern: index.html
