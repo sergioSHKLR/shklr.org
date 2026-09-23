@@ -2,7 +2,7 @@ name: embed-illustrated
 on:
   push:
     paths:
-      - ".github/illustrated.b64.*"
+      - ".github/illustrated.full.b64.*"
       - ".github/workflows/embed-illustrated.yml"
   workflow_dispatch:
 permissions:
@@ -16,9 +16,9 @@ jobs:
         run: |
           set -euo pipefail
           shopt -s nullglob
-          parts=(.github/illustrated.b64.*)
-          if [ ${#parts[@]} -eq 0 ]; then
-            echo "No illustrated.b64 parts yet"
+          parts=(.github/illustrated.full.b64.*)
+          if [ ${#parts[@]} -lt 12 ]; then
+            echo "Need 12 illustrated.full.b64 parts, have ${#parts[@]}"
             exit 0
           fi
           mkdir -p images
@@ -26,10 +26,10 @@ jobs:
           python3 - <<'PY'
           from pathlib import Path
           p = Path('images/us-round-illustrated.jpg')
-          assert p.stat().st_size > 10000, p.stat().st_size
+          assert p.stat().st_size > 140000, p.stat().st_size
           print('illustrated jpg', p.stat().st_size)
           PY
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Add images/us-round-illustrated.jpg (keep photo us-round.png)
+          commit_message: Add complete images/us-round-illustrated.jpg (keep photo us-round.png)
           file_pattern: images/us-round-illustrated.jpg
