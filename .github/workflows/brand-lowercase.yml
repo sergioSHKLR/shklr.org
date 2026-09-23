@@ -11,17 +11,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Lowercase brand and title marks
+      - name: Lowercase brand and bar title
         run: |
           python3 <<'PY'
           from pathlib import Path
           p = Path('index.html')
           t = p.read_text()
-          t = t.replace('> SHKLR</p>', '> shklr</p>', 1)
-          t = t.replace('</i> SHKLR</span>', '</i> shklr</span>', 1)
-          # keep page <title> as shklr.org (already lower)
+          t = t.replace('</i> SHKLR</p>', '</i> shklr</p>')
+          t = t.replace('</i> SHKLR</span>', '</i> shklr</span>')
           p.write_text(t)
-          print('brand', t.count('> shklr</p>'), 'bar', t.count('</i> shklr</span>'))
+          assert '</i> shklr</p>' in t
+          assert '</i> shklr</span>' in t
+          print('ok')
           PY
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
