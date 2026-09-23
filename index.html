@@ -41,7 +41,9 @@
     body { margin: 0; background: var(--bg); color: var(--fg); font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.55; }
     .wrap { max-width: 44rem; margin: 0 auto; padding: 3rem 1.25rem calc(var(--chrome-bottom) + 2rem); }
     header { text-align: center; margin-bottom: 2rem; }
-    #brand { font-family: "Russo One", sans-serif; font-size: 1.45rem; letter-spacing: 0.04em; margin: 0 0 .35rem; }
+    #brand { font-family: "Russo One", sans-serif; font-size: 1.45rem; letter-spacing: 0.04em; margin: 0 0 .35rem; display: inline-flex; align-items: center; justify-content: center; gap: .45rem; }
+    .logo-mark { width: 1.15em; height: 1.15em; color: #cc0000; }
+    #bar-title .logo-mark { width: 22px; height: 22px; flex: none; }
     .tag { color: var(--muted); font-size: .92rem; margin: 0 0 1rem; }
     .switchers { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem .75rem; }
     .switchers button { appearance: none; background: transparent; color: var(--fg); border: 1px solid var(--line); border-radius: 999px; padding: .35rem .85rem; font: inherit; cursor: pointer; }
@@ -82,6 +84,7 @@
       font-size: 0.9rem; font-weight: 600; letter-spacing: 0.06em;
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
       color: var(--bar-fg); user-select: none;
+      display: inline-flex; align-items: center; gap: .45rem;
     }
     #bar-end { display: flex; align-items: stretch; margin-left: auto; }
     #bar a {
@@ -101,7 +104,7 @@
 <body>
   <div class="wrap">
     <header>
-      <p id="brand">SHKLR</p>
+      <p id="brand"><i data-lucide="circle" class="logo-mark" aria-hidden="true"></i> SHKLR</p>
       <p class="tag" id="tagline-pt">Projeto independente — não é entidade registrada</p>
       <p class="tag" id="tagline-en" hidden>Independent project — not a registered entity</p>
       <div class="switchers">
@@ -210,13 +213,14 @@
     </footer>
   </div>
   <footer id="bar">
-    <span id="bar-title">SHKLR</span>
+    <span id="bar-title"><i data-lucide="circle" class="logo-mark" aria-hidden="true"></i> SHKLR</span>
     <div id="bar-end">
       <a href="https://librus.app" title="LIBRUS"><img src="https://librus.app/brand/librus-favicon-dark.svg" alt=""><span>LIBRUS</span></a>
       <a href="https://doutrina.org" title="DOUTRINA"><img src="https://doutrina.org/brand/doutrina-favicon-dark.svg" alt=""><span>DOUTRINA</span></a>
       <a href="https://centro.doutrina.org" title="CENTRO"><img src="https://centro.doutrina.org/brand/centro-favicon-dark.svg" alt=""><span>CENTRO</span></a>
     </div>
   </footer>
+  <script src="https://unpkg.com/lucide@0.544.0"></script>
   <script>
     const LANG = "shklr-lang";
     const THEME = "shklr-theme";
@@ -259,6 +263,7 @@
     langBtns.pt.addEventListener("click", () => applyLang("pt"));
     langBtns.en.addEventListener("click", () => applyLang("en"));
     themeBtns.forEach((b) => b.addEventListener("click", () => applyTheme(b.dataset.theme)));
+    if (window.lucide) lucide.createIcons({ attrs: { "stroke-width": 2.5 } });
   </script>
 </body>
 </html>
