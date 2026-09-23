@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>shklr.org</title>
-  <meta name="description" content="SHKLR Foundation — moral and ethical education. Português e English.">
+  <meta name="description" content="SHKLR — independent project for moral and ethical education. Português e English.">
   <meta name="author" content="sergioSHKLR, sergio@doutrina.org">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,6 +40,11 @@
     #brand {
       font-family: "Russo One", sans-serif;
       font-size: 1.5rem;
+      margin: 0 0 0.35rem;
+    }
+    .tag {
+      color: var(--muted);
+      font-size: 0.95rem;
       margin: 0 0 1rem;
     }
     .emoji { font-family: "Noto Color Emoji", sans-serif; }
@@ -64,6 +69,7 @@
     }
     .langs button:hover { text-decoration: underline; text-underline-offset: 3px; }
     h1 { font-size: 1.35rem; font-weight: 600; margin: 0 0 1rem; }
+    h2 { font-size: 1rem; font-weight: 600; margin: 1.75rem 0 0.5rem; letter-spacing: 0.02em; }
     p { margin: 0 0 1rem; }
     .muted { color: var(--muted); font-size: 0.95rem; }
     .sign {
@@ -74,15 +80,15 @@
       font-size: 1.15rem;
       margin: 0.25rem 0 0;
     }
-    nav.projects a {
+    nav a {
       display: block;
       color: var(--fg);
       text-decoration: none;
       border-top: 1px solid var(--line);
       padding: 0.85rem 0;
     }
-    nav.projects a:hover { text-decoration: underline; text-underline-offset: 3px; }
-    nav.projects strong { display: block; }
+    nav a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    nav strong { display: block; }
     footer {
       margin-top: 2.5rem;
       color: var(--muted);
@@ -97,6 +103,8 @@
   <div class="wrap">
     <header>
       <p id="brand"><span class="emoji" aria-hidden="true">⭕</span> shklr.org</p>
+      <p class="tag" id="tagline-pt">Projeto independente — não é entidade registrada</p>
+      <p class="tag" id="tagline-en" hidden>Independent project — not a registered entity</p>
       <div class="langs" role="group" aria-label="Language">
         <button type="button" id="btn-pt" data-lang="pt" aria-pressed="true"> 🇧🇷 PT</button>
         <button type="button" id="btn-en" data-lang="en" aria-pressed="false"> 🇺🇸 EN</button>
@@ -107,11 +115,12 @@
       <h1>Educação moral e ética</h1>
       <p>Juntos desde 2010, todo dia tentamos nos aperfeiçoar na moralidade e na intelectualidade. Frequentemente falhamos — com nós mesmos, um com o outro, com amigos e com as famílias.</p>
       <p>Ainda assim, tentamos aprender com os erros e seguir em frente, aconselhados pelos mentores e confiantes no amor e na misericórdia de Deus.</p>
-      <p>Use e compartilhe os projetos com quem pensa de modo semelhante.</p>
+      <p>Use e compartilhe os projetos com quem pensa de modo semelhante. Pensado para permanecer no ar depois de nós.</p>
       <div class="sign">
         <p><span class="emoji" aria-hidden="true">🙏</span> Confiem em Deus</p>
         <p class="names">Mai & Sergio</p>
       </div>
+      <h2>Projetos</h2>
       <nav class="projects" aria-label="Projetos">
         <a href="https://doutrina.org">
           <strong><span class="emoji" aria-hidden="true">💧</span> doutrina.org</strong>
@@ -126,17 +135,29 @@
           <span class="muted">Instância de centro + codificação</span>
         </a>
       </nav>
+      <h2>Contato</h2>
+      <nav aria-label="Contato">
+        <a href="mailto:sergio@doutrina.org">
+          <strong>sergio@doutrina.org</strong>
+          <span class="muted">Escrever</span>
+        </a>
+        <a href="https://mail.hover.com/" rel="noopener">
+          <strong>Webmail</strong>
+          <span class="muted">Hover — mail.hover.com</span>
+        </a>
+      </nav>
     </main>
 
     <main id="panel-en" lang="en" hidden>
       <h1>Moral and ethical education</h1>
       <p>Together since 2010, we try every day to improve morally and intellectually. We often fail — with ourselves, with each other, with friends, and with our families.</p>
       <p>Still we try to learn from the mistakes and keep going, advised by our mentors and trusting in God’s love and mercy.</p>
-      <p>Please use and share the projects with others of like mind.</p>
+      <p>Please use and share the projects with others of like mind. Meant to stay online after we are gone.</p>
       <div class="sign">
         <p><span class="emoji" aria-hidden="true">🙏</span> Trust in God</p>
         <p class="names">Mai & Sergio</p>
       </div>
+      <h2>Projects</h2>
       <nav class="projects" aria-label="Projects">
         <a href="https://doutrina.org">
           <strong><span class="emoji" aria-hidden="true">💧</span> doutrina.org</strong>
@@ -151,23 +172,37 @@
           <span class="muted">Center instance + codification</span>
         </a>
       </nav>
+      <h2>Contact</h2>
+      <nav aria-label="Contact">
+        <a href="mailto:sergio@doutrina.org">
+          <strong>sergio@doutrina.org</strong>
+          <span class="muted">Write</span>
+        </a>
+        <a href="https://mail.hover.com/" rel="noopener">
+          <strong>Webmail</strong>
+          <span class="muted">Hover — mail.hover.com</span>
+        </a>
+      </nav>
     </main>
 
     <footer>
-      <p>SHKLR Foundation · <a href="mailto:sergio@doutrina.org">sergio@doutrina.org</a></p>
-      <p>Non-commercial. No donations solicited or accepted.</p>
+      <p>SHKLR · family name, independent project</p>
+      <p>No donations solicited or accepted.</p>
     </footer>
   </div>
   <script>
     const KEY = "shklr-lang";
     const panels = { pt: document.getElementById("panel-pt"), en: document.getElementById("panel-en") };
     const buttons = { pt: document.getElementById("btn-pt"), en: document.getElementById("btn-en") };
+    const tags = { pt: document.getElementById("tagline-pt"), en: document.getElementById("tagline-en") };
 
     function apply(lang) {
       const next = lang === "en" ? "en" : "pt";
       document.documentElement.lang = next === "pt" ? "pt-BR" : "en";
       panels.pt.hidden = next !== "pt";
       panels.en.hidden = next !== "en";
+      tags.pt.hidden = next !== "pt";
+      tags.en.hidden = next !== "en";
       buttons.pt.setAttribute("aria-pressed", String(next === "pt"));
       buttons.en.setAttribute("aria-pressed", String(next === "en"));
       try { localStorage.setItem(KEY, next); } catch (e) {}
