@@ -328,7 +328,8 @@ html[data-theme="dark"] #mail-link:hover { background: rgba(255,255,255,.08); }
  tags.en.hidden = next !== "en";
  const c = copy[next];
  title.textContent = c.title;
-      if (contactTitle) contactTitle.textContent = next === "en" ? "Message" : "Mensagem";
+      const contactHeading = document.getElementById("contact-title");
+     if (contactHeading) contactHeading.textContent = next === "en" ? "Message" : "Mensagem";
  hint.textContent = c.hint;
  langLegend.textContent = c.lang;
  themeLegend.textContent = c.theme;
