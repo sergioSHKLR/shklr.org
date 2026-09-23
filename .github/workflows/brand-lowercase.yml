@@ -1,0 +1,29 @@
+name: brand-lowercase
+on:
+  push:
+    paths:
+      - ".github/workflows/brand-lowercase.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  brand:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lowercase brand and title marks
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          t = p.read_text()
+          t = t.replace('> SHKLR</p>', '> shklr</p>', 1)
+          t = t.replace('</i> SHKLR</span>', '</i> shklr</span>', 1)
+          # keep page <title> as shklr.org (already lower)
+          p.write_text(t)
+          print('brand', t.count('> shklr</p>'), 'bar', t.count('</i> shklr</span>'))
+          PY
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Lowercase brand and bar title to shklr
+          file_pattern: index.html
