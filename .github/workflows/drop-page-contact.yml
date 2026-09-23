@@ -1,0 +1,39 @@
+name: drop-page-contact
+on:
+  push:
+    paths:
+      - ".github/workflows/drop-page-contact.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove in-page Mensagem/Message cards
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          t = p.read_text(encoding='utf-8')
+          old_pt = ' <p><button type="button" class="card neutral" id="btn-contact-pt" style="width:100%;cursor:pointer;font:inherit;text-align:left"><span><strong>Mensagem</strong><span class="muted">Formul\u00e1rio p\u00fablico</span></span></button></p>\n'
+          old_en = ' <p><button type="button" class="card neutral" id="btn-contact-en" style="width:100%;cursor:pointer;font:inherit;text-align:left"><span><strong>Message</strong><span class="muted">Public form</span></span></button></p>\n'
+          if old_pt not in t:
+              raise SystemExit('pt button missing')
+          if old_en not in t:
+              raise SystemExit('en button missing')
+          t = t.replace(old_pt, '')
+          t = t.replace(old_en, '')
+          old_js = '    ["btn-contact-pt", "btn-contact-en", "btn-contact-bar"].forEach((id) => {'
+          new_js = '    ["btn-contact-bar"].forEach((id) => {'
+          if old_js not in t:
+              raise SystemExit('js missing')
+          t = t.replace(old_js, new_js)
+          p.write_text(t, encoding='utf-8')
+          print('ok', t.count('btn-contact-pt'), t.count('btn-contact-en'), t.count('btn-contact-bar'))
+          PY
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Remove in-page contact cards; keep bar button
+          file_pattern: index.html
