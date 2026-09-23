@@ -11,22 +11,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Download files from pt.shklr.org
+        with:
+          path: dest
+      - uses: actions/checkout@v4
+        with:
+          repository: sergioSHKLR/pt.shklr.org
+          path: src
+      - name: Copy media
         run: |
           set -euo pipefail
-          mkdir -p images framework/pdf
-          base=https://pt.shklr.org
-          curl -fL --retry 5 -o images/us-round.jpg "$base/images/us-round.jpg"
-          curl -fL --retry 5 -o framework/preces.png "$base/framework/preces.png"
-          curl -fL --retry 5 -o framework/obras-basicas.png "$base/framework/obras-basicas.png"
-          curl -fL --retry 5 -o framework/protector.png "$base/framework/protector.png"
-          curl -fL --retry 5 -o framework/anguish.png "$base/framework/anguish.png"
-          curl -fL --retry 5 -o framework/pdf/preces.pdf "$base/framework/pdf/preces.pdf"
-          curl -fL --retry 5 -o framework/pdf/obras-basicas.pdf "$base/framework/pdf/obras-b%C3%A1sicas.pdf"
-          curl -fL --retry 5 -o framework/pdf/protector-portrait.pdf "$base/framework/pdf/protector-portrait.pdf"
-          curl -fL --retry 5 -o framework/pdf/anguish-portrait.pdf "$base/framework/pdf/anguish-portrait.pdf"
-          ls -lh images framework framework/pdf
+          mkdir -p dest/images dest/framework/pdf
+          cp src/images/us-round.jpg dest/images/us-round.jpg
+          cp src/framework/preces.png dest/framework/preces.png
+          cp src/framework/obras-basicas.png dest/framework/obras-basicas.png
+          cp src/framework/protector.png dest/framework/protector.png
+          cp src/framework/anguish.png dest/framework/anguish.png
+          cp src/framework/pdf/preces.pdf dest/framework/pdf/preces.pdf
+          cp "src/framework/pdf/obras-básicas.pdf" dest/framework/pdf/obras-basicas.pdf
+          cp src/framework/pdf/protector-portrait.pdf dest/framework/pdf/protector-portrait.pdf
+          cp src/framework/pdf/anguish-portrait.pdf dest/framework/pdf/anguish-portrait.pdf
+          ls -lh dest/images dest/framework dest/framework/pdf
       - name: Commit imported files
+        working-directory: dest
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
