@@ -58,7 +58,8 @@ p { margin: 0 0 .75rem; }
 .muted { color: var(--muted); font-size: .92rem; }
 .sign { text-align: right; margin: 1.25rem 0 1.75rem; }
 .sign .names { font-family: var(--hand); font-size: 2.4rem; margin: .2rem 0 .55rem; line-height: 1; }
-.sign img { width: 168px; height: 168px; border-radius: 50%; object-fit: cover; }
+.sign img { width: 168px; height: 168px; border-radius: 50%; object-fit: cover; display: block; }
+.sign button.portrait { padding: 0; border: 0; background: none; cursor: pointer; border-radius: 50%; }
 .card { display: flex; gap: .85rem; align-items: flex-start; color: var(--fg); text-decoration: none; border: 1px solid var(--line); border-left-width: 4px; border-radius: 0 8px 8px 0; padding: .85rem 1rem; margin: 0 0 .55rem; }
 .card:hover { background: var(--lift); }
 .card.librus { border-left-color: var(--librus); }
