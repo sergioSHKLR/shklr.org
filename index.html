@@ -13,66 +13,29 @@
   <style>
     :root, html[data-theme="dark"] {
       color-scheme: dark;
-      --bg: #1a1a1a;
-      --fg: #f3f3f3;
-      --muted: #9a9a9a;
-      --line: #333;
-      --lift: #242424;
-      --librus: #6aa84f;
-      --doutrina: #3c78d8;
-      --centro: #cc0000;
-      --shklr: #cfcfcf;
+      --bg: #1a1a1a; --fg: #f3f3f3; --muted: #9a9a9a; --line: #333; --lift: #242424;
+      --librus: #6aa84f; --doutrina: #3c78d8; --centro: #cc0000; --shklr: #cfcfcf;
     }
     html[data-theme="light"] {
       color-scheme: light;
-      --bg: #f6f4ef;
-      --fg: #1c1c1c;
-      --muted: #5c5c5c;
-      --line: #d8d4cc;
-      --lift: #ece8e0;
-      --librus: #4e7d3a;
-      --doutrina: #2b5ea8;
-      --centro: #b00000;
-      --shklr: #444;
+      --bg: #f6f4ef; --fg: #1c1c1c; --muted: #5c5c5c; --line: #d8d4cc; --lift: #ece8e0;
+      --librus: #4e7d3a; --doutrina: #2b5ea8; --centro: #b00000; --shklr: #444;
     }
     @media (prefers-color-scheme: light) {
       html[data-theme="sys"] {
         color-scheme: light;
-        --bg: #f6f4ef;
-        --fg: #1c1c1c;
-        --muted: #5c5c5c;
-        --line: #d8d4cc;
-        --lift: #ece8e0;
-        --librus: #4e7d3a;
-        --doutrina: #2b5ea8;
-        --centro: #b00000;
-        --shklr: #444;
+        --bg: #f6f4ef; --fg: #1c1c1c; --muted: #5c5c5c; --line: #d8d4cc; --lift: #ece8e0;
+        --librus: #4e7d3a; --doutrina: #2b5ea8; --centro: #b00000; --shklr: #444;
       }
     }
     * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--fg);
-      font-family: Inter, system-ui, sans-serif;
-      font-size: 17px;
-      line-height: 1.55;
-    }
+    body { margin: 0; background: var(--bg); color: var(--fg); font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.55; }
     .wrap { max-width: 44rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
     header { text-align: center; margin-bottom: 2rem; }
-    #brand {
-      font-family: "Russo One", sans-serif;
-      font-size: 1.45rem;
-      letter-spacing: 0.04em;
-      margin: 0 0 .35rem;
-    }
+    #brand { font-family: "Russo One", sans-serif; font-size: 1.45rem; letter-spacing: 0.04em; margin: 0 0 .35rem; }
     .tag { color: var(--muted); font-size: .92rem; margin: 0 0 1rem; }
     .switchers { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem .75rem; }
-    .switchers button {
-      appearance: none; background: transparent; color: var(--fg);
-      border: 1px solid var(--line); border-radius: 999px;
-      padding: .35rem .85rem; font: inherit; cursor: pointer;
-    }
+    .switchers button { appearance: none; background: transparent; color: var(--fg); border: 1px solid var(--line); border-radius: 999px; padding: .35rem .85rem; font: inherit; cursor: pointer; }
     .switchers button[aria-pressed="true"] { border-color: var(--shklr); font-weight: 600; }
     h1 { font-size: 1.3rem; font-weight: 600; margin: 0 0 1rem; }
     h2 { font-size: 0.78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 2.2rem 0 .7rem; }
@@ -83,13 +46,7 @@
     .sign { text-align: right; margin: 1.5rem 0 2rem; }
     .sign .names { font-family: Zeyada, cursive; font-size: 2.4rem; margin: .2rem 0 .6rem; line-height: 1; }
     .sign img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; }
-    .card {
-      display: flex; gap: .85rem; align-items: flex-start;
-      color: var(--fg); text-decoration: none;
-      border: 1px solid var(--line); border-left-width: 4px;
-      border-radius: 0 8px 8px 0;
-      padding: .85rem 1rem; margin: 0 0 .65rem;
-    }
+    .card { display: flex; gap: .85rem; align-items: flex-start; color: var(--fg); text-decoration: none; border: 1px solid var(--line); border-left-width: 4px; border-radius: 0 8px 8px 0; padding: .85rem 1rem; margin: 0 0 .65rem; }
     .card:hover { background: var(--lift); }
     .card.librus { border-left-color: var(--librus); }
     .card.doutrina { border-left-color: var(--doutrina); }
@@ -121,17 +78,12 @@
         </div>
       </div>
     </header>
-
     <main id="panel-pt" lang="pt-BR">
       <h1>Educação moral e ética</h1>
       <p>Juntos desde 2010, todo dia tentamos nos aperfeiçoar na moralidade e na intelectualidade. Frequentemente falhamos — com nós mesmos, um com o outro, com amigos e com as famílias.</p>
       <p>Ainda assim, tentamos aprender com os erros e seguir em frente, aconselhados pelos mentores e confiantes no amor e na misericórdia de Deus.</p>
       <p>Use e compartilhe os projetos com quem pensa de modo semelhante. Pensado para permanecer no ar depois de nós.</p>
-      <div class="sign">
-        <p>Confiem em Deus</p>
-        <p class="names">Mai & Sergio</p>
-        <img src="https://pt.shklr.org/images/us-round.jpg" width="200" height="200" alt="Mai e Sergio">
-      </div>
+      <div class="sign"><p>Confiem em Deus</p><p class="names">Mai & Sergio</p><img src="https://pt.shklr.org/images/us-round.jpg" width="200" height="200" alt="Mai e Sergio"></div>
       <h2>Sabores ao vivo</h2>
       <a class="card doutrina" href="https://doutrina.org"><img class="mark" src="https://doutrina.org/brand/doutrina-favicon-dark.svg" alt=""><span><strong>DOUTRINA</strong><span class="muted">estudo para assimilar · Ache · Leia · Consulte · Anote</span></span></a>
       <a class="card librus" href="https://librus.app"><img class="mark" src="https://librus.app/brand/librus-favicon-dark.svg" alt=""><span><strong>LIBRUS</strong><span class="muted">anotar para assimilar · Ache · Leia · Consulte · Anote</span></span></a>
@@ -167,20 +119,15 @@
       <h2>Notas</h2>
       <p>Sem fins lucrativos. Nenhuma doação é pedida ou aceita. Sem direitos sobre Kardec ou a Bíblia. Nomes de instituições não são endosso. Uso: Lei 9.610/1998 art. 46.</p>
       <h2>Correio</h2>
-      <a class="card neutral" href="https://mail.hover.com/" rel="noopener"><span><strong>Entrar no correio</strong><span class="muted">sergio@doutrina.org — Hover</span></span></a>
-      <a class="card neutral" href="https://docs.google.com/forms/d/e/1FAIpQLSc7ZRs6usX8DhTixnerMX68QtRT0o-bz9PmTtn8OKK0z2vhsw/viewform?usp=sharing" rel="noopener"><span><strong>Formulário</strong><span class="muted">Mensagem pública</span></span></a>
+      <a class="card neutral" href="https://mail.hover.com/"><span><strong>Entrar no correio</strong><span class="muted">sergio@doutrina.org — Hover</span></span></a>
+      <a class="card neutral" href="https://docs.google.com/forms/d/e/1FAIpQLSc7ZRs6usX8DhTixnerMX68QtRT0o-bz9PmTtn8OKK0z2vhsw/viewform?usp=sharing"><span><strong>Formulário</strong><span class="muted">Mensagem pública</span></span></a>
     </main>
-
     <main id="panel-en" lang="en" hidden>
       <h1>Moral and ethical education</h1>
       <p>Together since 2010, we try every day to improve morally and intellectually. We often fail — with ourselves, with each other, with friends, and with our families.</p>
       <p>Still we try to learn from the mistakes and keep going, advised by our mentors and trusting in God’s love and mercy.</p>
       <p>Please use and share the projects with others of like mind. Meant to stay online after we are gone.</p>
-      <div class="sign">
-        <p>Trust in God</p>
-        <p class="names">Mai & Sergio</p>
-        <img src="https://pt.shklr.org/images/us-round.jpg" width="200" height="200" alt="Mai and Sergio">
-      </div>
+      <div class="sign"><p>Trust in God</p><p class="names">Mai & Sergio</p><img src="https://pt.shklr.org/images/us-round.jpg" width="200" height="200" alt="Mai and Sergio"></div>
       <h2>Live flavors</h2>
       <a class="card doutrina" href="https://doutrina.org"><img class="mark" src="https://doutrina.org/brand/doutrina-favicon-dark.svg" alt=""><span><strong>DOUTRINA</strong><span class="muted">study to assimilate · Find · Read · Lookup · Note</span></span></a>
       <a class="card librus" href="https://librus.app"><img class="mark" src="https://librus.app/brand/librus-favicon-dark.svg" alt=""><span><strong>LIBRUS</strong><span class="muted">annotate to assimilate · Find · Read · Lookup · Note</span></span></a>
@@ -216,10 +163,9 @@
       <h2>Notes</h2>
       <p>Not for profit. No donations asked or accepted. No rights claimed in Kardec or the Bible. Institutional names are not endorsements. Use: Brazilian Law 9.610/1998 art. 46.</p>
       <h2>Mail</h2>
-      <a class="card neutral" href="https://mail.hover.com/" rel="noopener"><span><strong>Open mailbox</strong><span class="muted">sergio@doutrina.org — Hover</span></span></a>
-      <a class="card neutral" href="https://docs.google.com/forms/d/e/1FAIpQLSc7ZRs6usX8DhTixnerMX68QtRT0o-bz9PmTtn8OKK0z2vhsw/viewform?usp=sharing" rel="noopener"><span><strong>Contact form</strong><span class="muted">Public message</span></span></a>
+      <a class="card neutral" href="https://mail.hover.com/"><span><strong>Open mailbox</strong><span class="muted">sergio@doutrina.org — Hover</span></span></a>
+      <a class="card neutral" href="https://docs.google.com/forms/d/e/1FAIpQLSc7ZRs6usX8DhTixnerMX68QtRT0o-bz9PmTtn8OKK0z2vhsw/viewform?usp=sharing"><span><strong>Contact form</strong><span class="muted">Public message</span></span></a>
     </main>
-
     <footer>
       <p>SHKLR · family name, independent project</p>
       <p>Mailbox: sergio@doutrina.org</p>
@@ -232,7 +178,6 @@
     const langBtns = { pt: document.getElementById("btn-pt"), en: document.getElementById("btn-en") };
     const tags = { pt: document.getElementById("tagline-pt"), en: document.getElementById("tagline-en") };
     const themeBtns = document.querySelectorAll(".themes button");
-
     function applyLang(lang) {
       const next = lang === "en" ? "en" : "pt";
       document.documentElement.lang = next === "pt" ? "pt-BR" : "en";
@@ -250,7 +195,10 @@
       themeBtns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.theme === next)));
       try { localStorage.setItem(THEME, next); } catch (e) {}
     }
-
+    document.querySelectorAll('a[href^="http"]').forEach((a) => {
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+    });
     let lang = "pt";
     let theme = "sys";
     try {
