@@ -41,7 +41,7 @@
  body { margin: 0; background: var(--bg); color: var(--fg); font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.55; }
  .wrap { max-width: 44rem; margin: 0 auto; padding: 3rem 1.25rem calc(var(--chrome-bottom) + 2rem); }
  header { text-align: center; margin-bottom: 2rem; }
- #brand { font-family: "Russo One", sans-serif; font-size: 1.45rem; letter-spacing: 0.04em; margin: 0 0 .35rem; display: inline-flex; align-items: center; justify-content: center; gap: .45rem; }
+ 
  .logo-mark { width: 1.15em; height: 1.15em; color: #cc0000; }
  #bar-title .logo-mark { width: 22px; height: 22px; flex: none; }
  .tag { color: var(--muted); font-size: .92rem; margin: 0; }
@@ -90,15 +90,49 @@
  #bar a img { width: 22px; height: 22px; }
  @media (max-width: 520px) { #bar a span { display: none; } }
  [hidden] { display: none !important; }
+
+#mast {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 1.5rem 1.25rem 1.25rem;
+  background: #fff;
+  color: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: .35rem;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--sans);
+}
+html[data-theme="dark"] #mast { background: #111; color: #f0f0f0; border-bottom-color: #333; }
+@media (prefers-color-scheme: dark) {
+  html[data-theme="sys"] #mast { background: #111; color: #f0f0f0; border-bottom-color: #333; }
+}
+#mast .library-mark { width: 56px; height: 56px; color: #cc0000; display: flex; align-items: center; justify-content: center; }
+#mast .library-mark svg { width: 56px; height: 56px; }
+#mast h1 {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  line-height: 1.2;
+}
+#mast .library-cta { margin: 0; font-size: .9rem; color: #555; font-weight: 400; }
+html[data-theme="dark"] #mast .library-cta { color: #a0a0a0; }
+@media (prefers-color-scheme: dark) {
+  html[data-theme="sys"] #mast .library-cta { color: #a0a0a0; }
+}
+#bar-title { font-size: 1rem; letter-spacing: .1em; }
+
  </style>
 </head>
 <body>
  <div class="wrap">
- <header>
- <p id="brand"><i data-lucide="circle" class="logo-mark" aria-hidden="true"></i> shklr</p>
- <p class="tag" id="tagline-pt">Projeto independente — não é entidade registrada</p>
- <p class="tag" id="tagline-en" hidden>Independent project — not a registered entity</p>
- </header>
+ <header id="mast"><div class="library-mark" aria-hidden="true"><i data-lucide="circle" class="logo-mark"></i></div><h1 id="brand"><span>shklr</span></h1><p class="library-cta" id="tagline-pt">Projeto independente — não é entidade registrada</p><p class="library-cta" id="tagline-en" hidden>Independent project — not a registered entity</p></header>
  <main id="panel-pt" lang="pt-BR">
  <h1>Educação moral e ética</h1>
  <p>Juntos desde 2010, todo dia tentamos nos aperfeiçoar na moralidade e na intelectualidade. Frequentemente falhamos — com nós mesmos, um com o outro, com amigos e com as famílias.</p>
