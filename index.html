@@ -30,7 +30,7 @@
     }
     * { box-sizing: border-box; }
     body { margin: 0; background: var(--bg); color: var(--fg); font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.55; }
-    .wrap { max-width: 44rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+    .wrap { max-width: 44rem; margin: 0 auto; padding: 3rem 1.25rem 5.5rem; }
     header { text-align: center; margin-bottom: 2rem; }
     #brand { font-family: "Russo One", sans-serif; font-size: 1.45rem; letter-spacing: 0.04em; margin: 0 0 .35rem; }
     .tag { color: var(--muted); font-size: .92rem; margin: 0 0 1rem; }
@@ -57,6 +57,18 @@
     .thumb { display: block; max-width: min(100%, 320px); height: auto; margin: .6rem 0; border: 1px solid var(--line); }
     iframe.cal { width: 100%; height: 560px; border: 1px solid var(--line); background: #fff; }
     footer { margin-top: 2.5rem; color: var(--muted); font-size: .82rem; text-align: center; }
+    .bottombar {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+      display: flex; justify-content: center; align-items: center; gap: 1.1rem;
+      padding: .55rem 1rem calc(.55rem + env(safe-area-inset-bottom));
+      background: var(--bg); border-top: 1px solid var(--line); font-size: .8rem;
+    }
+    .bottombar a { color: var(--fg); text-decoration: none; display: inline-flex; align-items: center; gap: .35rem; }
+    .bottombar a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .dot { width: .55rem; height: .55rem; border-radius: 50%; display: inline-block; }
+    .dot.doutrina { background: var(--doutrina); }
+    .dot.librus { background: var(--librus); }
+    .dot.centro { background: var(--centro); }
     [hidden] { display: none !important; }
   </style>
 </head>
@@ -171,6 +183,11 @@
       <p>Mailbox: sergio@doutrina.org</p>
     </footer>
   </div>
+  <nav class="bottombar" aria-label="Flavors">
+    <a href="https://doutrina.org"><span class="dot doutrina"></span>DOUTRINA</a>
+    <a href="https://librus.app"><span class="dot librus"></span>LIBRUS</a>
+    <a href="https://centro.doutrina.org"><span class="dot centro"></span>CENTRO</a>
+  </nav>
   <script>
     const LANG = "shklr-lang";
     const THEME = "shklr-theme";
