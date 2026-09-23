@@ -1,0 +1,27 @@
+name: wire-pdf-preview
+on:
+  push:
+    paths:
+      - ".github/workflows/wire-pdf-preview.yml"
+      - "scripts/patch_assets.b64"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch index assets
+        run: |
+          python3 - <<'PY'
+          import base64
+          from pathlib import Path
+          raw = Path("scripts/patch_assets.b64").read_text()
+          Path("patch_assets.py").write_bytes(base64.b64decode(raw))
+          PY
+          python3 patch_assets.py
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Icon-only downloads, PDF preview, poster PNG modal
+          file_pattern: index.html
