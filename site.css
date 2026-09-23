@@ -108,7 +108,10 @@ html[data-theme="dark"] #mail-link:hover { background: rgba(255,255,255,.08); }
 .tl-body { padding: 0 0 .85rem; color: var(--muted); font-size: .92rem; }
 .tl-body p { margin: 0 0 .45rem; }
 .tl-body a { color: var(--fg); }
-.say { margin: 0 0 .4rem; color: var(--muted); font-size: .95rem; }
+.thought { margin: -0.4rem 0 1.75rem; padding: 0; display: grid; grid-template-columns: 1fr auto; gap: .6rem; align-items: start; }
+.thought blockquote { margin: 0; font-size: 1.02rem; line-height: 1.45; color: var(--fg); font-style: italic; }
+.thought button { width: 2rem; height: 2rem; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--brand); cursor: pointer; font-size: 1.1rem; line-height: 1; font-family: var(--sans); }
+.thought button:hover { background: var(--lift); }
 @media (max-width: 640px) {
   #viewer { width: 100vw; height: calc(100% - var(--chrome-bottom)); max-height: none; border-radius: 0; left: 0; top: 0; transform: none; }
   #viewer.is-open { transform: none; left: 0; top: 0; }

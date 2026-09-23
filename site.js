@@ -103,5 +103,39 @@ document.querySelectorAll(".tl button").forEach((btn) => {
 });
 scrim.addEventListener("click", () => { closeSettings(); closeContact(); closeViewer(); });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") { closeSettings(); closeContact(); closeViewer(); } });
+const thoughts = {
+pt: [
+ "O conforto que você almeja é a recompensa pelos desafios que evitou.",
+ "Minhas feridas não me preocupam tanto quanto o bem que poderia ter feito enquanto eu estava distraído com minha dor.",
+ "A utilidade de uma alma é uma função da aplicação consciente de seu livre-arbítrio.",
+ "Imersos no amor de Deus, por que esmolar migalhas de afeição de terceiros?",
+ "Se o que foi compartilhado não mudou ato ou pensamento, continue mesmo assim.",
+ "Conhecimento é estéril sem ação. Passos pequenos e consistentes.",
+ "A distância da felicidade é a que pomos entre o interesse próprio e o propósito divino."
+],
+en: [
+ "The comfort you long for is the reward for the challenges you avoided.",
+ "My wounds worry me less than the good I might have done while distracted by the pain.",
+ "The usefulness of a soul is a function of the conscious use of free will.",
+ "Immersed in God’s love, why beg crumbs of affection from others?",
+ "If what was shared did not change an act or a thought, keep going anyway.",
+ "Knowledge is sterile without action. Small, consistent steps.",
+ "The distance from happiness is the distance we put between self-interest and purpose."
+]
+};
+let thoughtI = Math.floor(Date.now() / 86400000) % thoughts.pt.length;
+function paintThoughts() {
+ document.querySelectorAll("[data-thought]").forEach((el) => {
+  const panel = el.closest("main");
+  const lang = panel && panel.id === "panel-en" ? "en" : "pt";
+  el.textContent = thoughts[lang][thoughtI];
+ });
+}
+function nextThought() {
+ thoughtI = (thoughtI + 1) % thoughts.pt.length;
+ paintThoughts();
+}
+paintThoughts();
+document.querySelectorAll("[data-thought-next]").forEach((btn) => btn.addEventListener("click", nextThought));
 if (window.lucide) lucide.createIcons({ attrs: { "stroke-width": 2.5 } });
 document.querySelectorAll(".logo-mark").forEach((el) => el.setAttribute("stroke-width", "3.5"));
