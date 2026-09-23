@@ -8,95 +8,37 @@
   <meta name="author" content="sergioSHKLR, sergio@doutrina.org">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Russo+One&family=Noto+Color+Emoji&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Russo+One&family=Zeyada&family=Noto+Color+Emoji&display=swap" rel="stylesheet">
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <style>
-    :root {
-      color-scheme: dark;
-      --bg: #222;
-      --fg: #fff;
-      --muted: #bdbdbd;
-      --line: #444;
-    }
+    :root { color-scheme: dark; --bg:#222; --fg:#fff; --muted:#bdbdbd; --line:#444; }
     * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: var(--bg);
-      color: var(--fg);
-      font-family: Inter, system-ui, sans-serif;
-      font-size: 18px;
-      line-height: 1.55;
-    }
-    .wrap {
-      max-width: 40rem;
-      margin: 0 auto;
-      padding: 3rem 1.25rem 4rem;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    #brand {
-      font-family: "Russo One", sans-serif;
-      font-size: 1.5rem;
-      margin: 0 0 0.35rem;
-    }
-    .tag {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin: 0 0 1rem;
-    }
-    .emoji { font-family: "Noto Color Emoji", sans-serif; }
-    .langs {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-    .langs button {
-      appearance: none;
-      background: transparent;
-      color: var(--fg);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 0.35rem 0.9rem;
-      font: inherit;
-      cursor: pointer;
-    }
-    .langs button[aria-pressed="true"] {
-      border-color: #fff;
-      font-weight: 600;
-    }
-    .langs button:hover { text-decoration: underline; text-underline-offset: 3px; }
-    h1 { font-size: 1.35rem; font-weight: 600; margin: 0 0 1rem; }
-    h2 { font-size: 1rem; font-weight: 600; margin: 1.75rem 0 0.5rem; letter-spacing: 0.02em; }
-    p { margin: 0 0 1rem; }
-    .muted { color: var(--muted); font-size: 0.95rem; }
-    .sign {
-      text-align: right;
-      margin: 1.5rem 0 2rem;
-    }
-    .sign .names {
-      font-size: 1.15rem;
-      margin: 0.25rem 0 0;
-    }
-    nav a {
-      display: block;
-      color: var(--fg);
-      text-decoration: none;
-      border-top: 1px solid var(--line);
-      padding: 0.85rem 0;
-    }
-    nav a:hover { text-decoration: underline; text-underline-offset: 3px; }
-    nav strong { display: block; }
-    footer {
-      margin-top: 2.5rem;
-      color: var(--muted);
-      font-size: 0.85rem;
-      text-align: center;
-    }
-    footer a { color: inherit; }
-    [hidden] { display: none !important; }
+    body { margin:0; background:var(--bg); color:var(--fg); font-family:Inter,system-ui,sans-serif; font-size:18px; line-height:1.55; }
+    .wrap { max-width:44rem; margin:0 auto; padding:3rem 1.25rem 4rem; }
+    header { text-align:center; margin-bottom:2rem; }
+    #brand { font-family:"Russo One",sans-serif; font-size:1.5rem; margin:0 0 .35rem; }
+    .tag { color:var(--muted); font-size:.95rem; margin:0 0 1rem; }
+    .emoji { font-family:"Noto Color Emoji",sans-serif; }
+    .langs { display:flex; justify-content:center; gap:.5rem; }
+    .langs button { appearance:none; background:transparent; color:var(--fg); border:1px solid var(--line); border-radius:999px; padding:.35rem .9rem; font:inherit; cursor:pointer; }
+    .langs button[aria-pressed="true"] { border-color:#fff; font-weight:600; }
+    h1 { font-size:1.35rem; font-weight:600; margin:0 0 1rem; }
+    h2 { font-size:1.15rem; margin:2rem 0 .6rem; }
+    h3 { font-size:1.02rem; margin:1.4rem 0 .4rem; }
+    p, li { margin:0 0 .85rem; }
+    ul { padding-left:1.2rem; }
+    .muted { color:var(--muted); font-size:.95rem; }
+    .sign { text-align:right; margin:1.5rem 0 2rem; }
+    .sign .names { font-family:Zeyada,cursive; font-size:2.4rem; margin:.2rem 0 .6rem; line-height:1; }
+    .sign img { width:200px; height:200px; border-radius:50%; object-fit:cover; }
+    nav.apps a, .links a { display:block; color:var(--fg); text-decoration:none; border-top:1px solid var(--line); padding:.75rem 0; }
+    nav.apps a:hover, .links a:hover { text-decoration:underline; text-underline-offset:3px; }
+    nav.apps strong, .links strong { display:block; }
+    .thumb { display:block; max-width:min(100%,320px); height:auto; margin:.6rem 0; border:1px solid var(--line); }
+    iframe.cal { width:100%; height:600px; border:1px solid #777; background:#fff; }
+    footer { margin-top:2.5rem; color:var(--muted); font-size:.85rem; text-align:center; }
+    footer a { color:inherit; }
+    [hidden] { display:none !important; }
   </style>
 </head>
 <body>
@@ -106,8 +48,8 @@
       <p class="tag" id="tagline-pt">Projeto independente — não é entidade registrada</p>
       <p class="tag" id="tagline-en" hidden>Independent project — not a registered entity</p>
       <div class="langs" role="group" aria-label="Language">
-        <button type="button" id="btn-pt" data-lang="pt" aria-pressed="true"> 🇧🇷 PT</button>
-        <button type="button" id="btn-en" data-lang="en" aria-pressed="false"> 🇺🇸 EN</button>
+        <button type="button" id="btn-pt" aria-pressed="true">🇧🇷 PT</button>
+        <button type="button" id="btn-en" aria-pressed="false">🇺🇸 EN</button>
       </div>
     </header>
 
@@ -119,28 +61,64 @@
       <div class="sign">
         <p><span class="emoji" aria-hidden="true">🙏</span> Confiem em Deus</p>
         <p class="names">Mai & Sergio</p>
+        <img src="https://pt.shklr.org/images/us-round.jpg" width="200" height="200" alt="Mai e Sergio">
       </div>
-      <h2>Projetos</h2>
-      <nav class="projects" aria-label="Projetos">
-        <a href="https://doutrina.org">
-          <strong><span class="emoji" aria-hidden="true">💧</span> doutrina.org</strong>
-          <span class="muted">Codificação Kardec — estudo integrado</span>
-        </a>
-        <a href="https://librus.app">
-          <strong><span class="emoji" aria-hidden="true">📖</span> librus.app</strong>
-          <span class="muted">Leitor LIBRUS — Ache · Leia · Consulte · Anote</span>
-        </a>
-        <a href="https://centro.doutrina.org">
-          <strong><span class="emoji" aria-hidden="true">🏠</span> centro.doutrina.org</strong>
-          <span class="muted">Instância de centro + codificação</span>
-        </a>
+
+      <h2>Sites ao vivo</h2>
+      <nav class="apps">
+        <a href="https://doutrina.org"><strong><span class="emoji">💧</span> doutrina.org</strong><span class="muted">Codificação Kardec — estudo integrado</span></a>
+        <a href="https://librus.app"><strong><span class="emoji">📖</span> librus.app</strong><span class="muted">Leitor LIBRUS — Ache · Leia · Consulte · Anote</span></a>
+        <a href="https://centro.doutrina.org"><strong><span class="emoji">🏠</span> centro.doutrina.org</strong><span class="muted">Instância de centro + codificação</span></a>
       </nav>
+
+      <h2>Outros projetos SHKLR</h2>
+      <h3><span class="emoji">➄</span> Cinco</h3>
+      <p>Ler as obras básicas da doutrina Espírita em um ano. Cada dia, um PDF de 5 páginas (10 páginas de 21 a 31 de dezembro). Highlights, anotações e comentários são bem-vindos.</p>
+      <p class="muted">Calendário público (início em 1º de janeiro) ou a lista de e-mail (qualquer dia do ano).</p>
+      <iframe class="cal" title="Calendário Cinco" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FChicago&mode=MONTH&showPrint=0&showCalendars=0&showTz=0&showNav=0&src=Y2c5NXRnZjlhcmw0dWhuZWNrNzJiZjdmbmtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%233F51B5"></iframe>
+
+      <h3><span class="emoji">🙏</span> Livro de Preces</h3>
+      <p>Capítulo 28 de <em>O Evangelho segundo o Espiritismo</em>.</p>
+      <img class="thumb" src="https://pt.shklr.org/framework/preces.png" alt="Livro de Preces">
+      <p class="links"><a href="https://pt.shklr.org/framework/pdf/preces.pdf">mostrar / baixar PDF</a></p>
+
+      <h3><span class="emoji">📚</span> Obras básicas</h3>
+      <p>Coletânea LDE + LDM + ESE + CEU + GEN para pesquisa e estudo.</p>
+      <img class="thumb" src="https://pt.shklr.org/framework/obras-basicas.png" alt="Obras básicas">
+      <p class="links"><a href="https://pt.shklr.org/framework/pdf/obras-b%C3%A1sicas.pdf">mostrar / baixar PDF</a></p>
+
+      <h3><span class="emoji">🖼️</span> Posters</h3>
+      <p>Impressão 11×17 e moldura.</p>
+      <img class="thumb" src="https://pt.shklr.org/framework/protector.png" alt="Protector">
+      <p class="links"><a href="https://pt.shklr.org/framework/protector.png">mostrar PNG</a> · <a href="https://pt.shklr.org/framework/pdf/protector-portrait.pdf">PDF</a></p>
+      <img class="thumb" src="https://pt.shklr.org/framework/anguish.png" alt="Anguish">
+      <p class="links"><a href="https://pt.shklr.org/framework/anguish.png">mostrar PNG</a> · <a href="https://pt.shklr.org/framework/pdf/anguish-portrait.pdf">PDF</a></p>
+
+      <h3><span class="emoji">💭</span> Mensagens</h3>
+      <ul>
+        <li>O conforto que você almeja é a recompensa pelos desafios que evitou.</li>
+        <li>Minhas feridas não me preocupam tanto quanto o bem que poderia ter feito enquanto eu estava distraído com minha dor.</li>
+        <li>A utilidade de uma alma é uma função da aplicação consciente de seu livre-arbítrio, presente dado por Deus para o melhoramento próprio e de tudo à volta, pelo esforço manual e mental.</li>
+        <li>Considerando que somos imersos no amor de Deus, tão completo e incondicional, por que muitos desperdiçam a vida esmolando migalhas de afeição de terceiros?</li>
+        <li>Se pensamentos, palavras ou atos não foram modificados pelo conhecimento compartilhado, talvez a vontade de mudar ainda não tenha atingido o patamar necessário. Continue. Deus não recompensa só o vitorioso, mas a quem usa seus talentos até o limite.</li>
+        <li>Todo este conhecimento é estéril se não extirpar a ignorância, não impulsionar à ação e não nos tornar conscientes do dever para com Deus. Deste momento, passos pequenos e consistentes.</li>
+        <li>A distância que nos afasta da felicidade é a mesma que colocamos entre satisfazer nossos interesses e cumprir nosso propósito divino.</li>
+      </ul>
+
+      <h2>Notas</h2>
+      <h3>Monetário</h3>
+      <p>Projetos sem fins lucrativos ou de subsistência. Nenhum ganho, doação ou troca é solicitada ou aceita.</p>
+      <h3>Direitos</h3>
+      <p>Não exercemos direitos sobre LDE, LDM, ESE, CEU, GEN, traduções bíblicas ou derivativos — pertencem aos respectivos titulares.</p>
+      <h3>Endossos</h3>
+      <p>Nome ou logotipo de instituições não constitui aprovação. Elas não respondem por estes materiais.</p>
+      <h3>Uso permitido</h3>
+      <p>Uso conforme o art. 46 da Lei nº 9.610/1998 (citação para estudo, crítica ou polêmica, com indicação de autoria e origem). A proteção no campo das ciências recai sobre a forma literária, não sobre o conteúdo científico (art. 7º, § 3º).</p>
+
       <h2>Correio</h2>
-      <nav aria-label="Correio">
-        <a href="https://mail.hover.com/" rel="noopener">
-          <strong>Entrar no correio</strong>
-          <span class="muted">sergio@doutrina.org — Hover webmail</span>
-        </a>
+      <nav class="apps">
+        <a href="https://mail.hover.com/" rel="noopener"><strong>Entrar no correio</strong><span class="muted">sergio@doutrina.org — Hover webmail</span></a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc7ZRs6usX8DhTixnerMX68QtRT0o-bz9PmTtn8OKK0z2vhsw/viewform?usp=sharing" rel="noopener"><strong>Formulário de contato</strong><span class="muted">Mensagem pública</span></a>
       </nav>
     </main>
 
@@ -152,28 +130,64 @@
       <div class="sign">
         <p><span class="emoji" aria-hidden="true">🙏</span> Trust in God</p>
         <p class="names">Mai & Sergio</p>
+        <img src="https://pt.shklr.org/images/us-round.jpg" width="200" height="200" alt="Mai and Sergio">
       </div>
-      <h2>Projects</h2>
-      <nav class="projects" aria-label="Projects">
-        <a href="https://doutrina.org">
-          <strong><span class="emoji" aria-hidden="true">💧</span> doutrina.org</strong>
-          <span class="muted">Kardec codification — integrated study</span>
-        </a>
-        <a href="https://librus.app">
-          <strong><span class="emoji" aria-hidden="true">📖</span> librus.app</strong>
-          <span class="muted">LIBRUS reader — Find · Read · Lookup · Note</span>
-        </a>
-        <a href="https://centro.doutrina.org">
-          <strong><span class="emoji" aria-hidden="true">🏠</span> centro.doutrina.org</strong>
-          <span class="muted">Center instance + codification</span>
-        </a>
+
+      <h2>Live sites</h2>
+      <nav class="apps">
+        <a href="https://doutrina.org"><strong><span class="emoji">💧</span> doutrina.org</strong><span class="muted">Kardec codification — integrated study</span></a>
+        <a href="https://librus.app"><strong><span class="emoji">📖</span> librus.app</strong><span class="muted">LIBRUS reader — Find · Read · Lookup · Note</span></a>
+        <a href="https://centro.doutrina.org"><strong><span class="emoji">🏠</span> centro.doutrina.org</strong><span class="muted">Center instance + codification</span></a>
       </nav>
+
+      <h2>Other SHKLR projects</h2>
+      <h3><span class="emoji">➄</span> Cinco</h3>
+      <p>Read the five basic Spiritist works in one year. Each day, a 5-page PDF (10 pages 21–31 December). Highlights, notes, and comments welcome.</p>
+      <p class="muted">Public calendar (start 1 January) or the email list (any day of the year).</p>
+      <iframe class="cal" title="Cinco calendar" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FChicago&mode=MONTH&showPrint=0&showCalendars=0&showTz=0&showNav=0&src=Y2c5NXRnZjlhcmw0dWhuZWNrNzJiZjdmbmtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%233F51B5"></iframe>
+
+      <h3><span class="emoji">🙏</span> Book of Prayers</h3>
+      <p>Chapter 28 of <em>The Gospel According to Spiritism</em>.</p>
+      <img class="thumb" src="https://pt.shklr.org/framework/preces.png" alt="Book of Prayers">
+      <p class="links"><a href="https://pt.shklr.org/framework/pdf/preces.pdf">view / download PDF</a></p>
+
+      <h3><span class="emoji">📚</span> Basic works</h3>
+      <p>Collected LDE + LDM + ESE + CEU + GEN for study and search.</p>
+      <img class="thumb" src="https://pt.shklr.org/framework/obras-basicas.png" alt="Basic works">
+      <p class="links"><a href="https://pt.shklr.org/framework/pdf/obras-b%C3%A1sicas.pdf">view / download PDF</a></p>
+
+      <h3><span class="emoji">🖼️</span> Posters</h3>
+      <p>11×17 print and frame.</p>
+      <img class="thumb" src="https://pt.shklr.org/framework/protector.png" alt="Protector">
+      <p class="links"><a href="https://pt.shklr.org/framework/protector.png">PNG</a> · <a href="https://pt.shklr.org/framework/pdf/protector-portrait.pdf">PDF</a></p>
+      <img class="thumb" src="https://pt.shklr.org/framework/anguish.png" alt="Anguish">
+      <p class="links"><a href="https://pt.shklr.org/framework/anguish.png">PNG</a> · <a href="https://pt.shklr.org/framework/pdf/anguish-portrait.pdf">PDF</a></p>
+
+      <h3><span class="emoji">💭</span> Messages</h3>
+      <ul>
+        <li>The comfort you long for is the reward for the challenges you avoided.</li>
+        <li>My wounds worry me less than the good I might have done while distracted by the pain.</li>
+        <li>The usefulness of a soul is a function of the conscious use of free will — a gift from God for the improvement of oneself and of all around, by hand and by mind.</li>
+        <li>Immersed in God’s complete love, why spend a life begging crumbs of affection from others?</li>
+        <li>If thought, word, or act was not changed by what was shared, the will to change may not yet be enough. Keep going. God rewards not only the victor but whoever spends their talents to the limit.</li>
+        <li>This knowledge is sterile if it does not cut ignorance, move us to act, and make us aware of our duty to God. From this moment: small, consistent steps.</li>
+        <li>The distance from happiness is the distance we put between our own interests and our divine purpose.</li>
+      </ul>
+
+      <h2>Notes</h2>
+      <h3>Money</h3>
+      <p>Not for profit or livelihood. No gain, donation, or exchange is asked or accepted.</p>
+      <h3>Rights</h3>
+      <p>We claim no rights in LDE, LDM, ESE, CEU, GEN, Bible translations, or derivatives — those belong to their holders.</p>
+      <h3>Endorsements</h3>
+      <p>An institution’s name or logo is not approval. They are not responsible for these materials.</p>
+      <h3>Permitted use</h3>
+      <p>Use under Brazilian Law 9.610/1998 art. 46 (quotation for study, criticism, or debate, with author and source). Scientific protection covers literary form, not scientific content (art. 7 §3).</p>
+
       <h2>Mail</h2>
-      <nav aria-label="Mail">
-        <a href="https://mail.hover.com/" rel="noopener">
-          <strong>Open mailbox</strong>
-          <span class="muted">sergio@doutrina.org — Hover webmail</span>
-        </a>
+      <nav class="apps">
+        <a href="https://mail.hover.com/" rel="noopener"><strong>Open mailbox</strong><span class="muted">sergio@doutrina.org — Hover webmail</span></a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc7ZRs6usX8DhTixnerMX68QtRT0o-bz9PmTtn8OKK0z2vhsw/viewform?usp=sharing" rel="noopener"><strong>Contact form</strong><span class="muted">Public message</span></a>
       </nav>
     </main>
 
@@ -187,7 +201,6 @@
     const panels = { pt: document.getElementById("panel-pt"), en: document.getElementById("panel-en") };
     const buttons = { pt: document.getElementById("btn-pt"), en: document.getElementById("btn-en") };
     const tags = { pt: document.getElementById("tagline-pt"), en: document.getElementById("tagline-en") };
-
     function apply(lang) {
       const next = lang === "en" ? "en" : "pt";
       document.documentElement.lang = next === "pt" ? "pt-BR" : "en";
@@ -199,7 +212,6 @@
       buttons.en.setAttribute("aria-pressed", String(next === "en"));
       try { localStorage.setItem(KEY, next); } catch (e) {}
     }
-
     let start = "pt";
     try {
       const saved = localStorage.getItem(KEY);
@@ -207,7 +219,6 @@
       else if (/^en\b/i.test(navigator.language || "")) start = "en";
     } catch (e) {}
     apply(start);
-
     buttons.pt.addEventListener("click", () => apply("pt"));
     buttons.en.addEventListener("click", () => apply("en"));
   </script>
