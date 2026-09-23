@@ -1,0 +1,35 @@
+name: embed-illustrated
+on:
+  push:
+    paths:
+      - ".github/illustrated.b64.*"
+      - ".github/workflows/embed-illustrated.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  write:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Decode illustrated portrait
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          parts=(.github/illustrated.b64.*)
+          if [ ${#parts[@]} -eq 0 ]; then
+            echo "No illustrated.b64 parts yet"
+            exit 0
+          fi
+          mkdir -p images
+          cat "${parts[@]}" | tr -d '\n \r' | base64 -d > images/us-round-illustrated.jpg
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('images/us-round-illustrated.jpg')
+          assert p.stat().st_size > 10000, p.stat().st_size
+          print('illustrated jpg', p.stat().st_size)
+          PY
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Add images/us-round-illustrated.jpg (keep photo us-round.png)
+          file_pattern: images/us-round-illustrated.jpg
