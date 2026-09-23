@@ -1,2 +1,3 @@
 from pathlib import Path
-print('placeholder')
+p = Path('index.html')
+print('loaded', p.exists(), p.stat().st_size if p.exists() else 0)
