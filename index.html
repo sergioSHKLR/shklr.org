@@ -44,10 +44,32 @@
     #brand { font-family: "Russo One", sans-serif; font-size: 1.45rem; letter-spacing: 0.04em; margin: 0 0 .35rem; display: inline-flex; align-items: center; justify-content: center; gap: .45rem; }
     .logo-mark { width: 1.15em; height: 1.15em; color: #cc0000; }
     #bar-title .logo-mark { width: 22px; height: 22px; flex: none; }
-    .tag { color: var(--muted); font-size: .92rem; margin: 0 0 1rem; }
-    .switchers { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem .75rem; }
-    .switchers button { appearance: none; background: transparent; color: var(--fg); border: 1px solid var(--line); border-radius: 999px; padding: .35rem .85rem; font: inherit; cursor: pointer; }
-    .switchers button[aria-pressed="true"] { border-color: var(--shklr); font-weight: 600; }
+    .tag { color: var(--muted); font-size: .92rem; margin: 0; }
+    #bar button {
+      background: transparent; border: none; border-radius: 0;
+      color: var(--bar-fg); cursor: pointer;
+      height: var(--chrome); min-width: var(--chrome);
+      padding: 0 1rem;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+      font-family: var(--sans); font-size: 0.78rem; font-weight: 600;
+    }
+    #bar button:hover, #bar button[aria-expanded="true"] { background: rgba(255,255,255,0.12); }
+    #bar button i, #bar button svg { width: 22px; height: 22px; }
+    #settings {
+      position: fixed; right: .6rem; bottom: calc(var(--chrome-bottom) + .5rem);
+      z-index: 510; width: min(18rem, calc(100vw - 1.2rem));
+      background: var(--lift); color: var(--fg); border: 1px solid var(--line);
+      border-radius: 10px; padding: .85rem 1rem 1rem;
+      box-shadow: 0 8px 28px rgba(0,0,0,.28);
+    }
+    #settings h2 { margin: 0 0 .55rem; }
+    #settings .row { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 0 .75rem; }
+    #settings button {
+      appearance: none; background: transparent; color: var(--fg);
+      border: 1px solid var(--line); border-radius: 999px;
+      padding: .3rem .8rem; font: inherit; cursor: pointer;
+    }
+    #settings button[aria-pressed="true"] { border-color: var(--shklr); font-weight: 600; }
     h1 { font-size: 1.3rem; font-weight: 600; margin: 0 0 1rem; }
     h2 { font-size: 0.78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 2.2rem 0 .7rem; }
     h3 { font-size: 1.05rem; margin: 1.5rem 0 .4rem; }
@@ -109,17 +131,6 @@
       <p id="brand"><i data-lucide="circle" class="logo-mark" aria-hidden="true"></i> SHKLR</p>
       <p class="tag" id="tagline-pt">Projeto independente — não é entidade registrada</p>
       <p class="tag" id="tagline-en" hidden>Independent project — not a registered entity</p>
-      <div class="switchers">
-        <div class="langs" role="group" aria-label="Language">
-          <button type="button" id="btn-pt" aria-pressed="true">PT</button>
-          <button type="button" id="btn-en" aria-pressed="false">EN</button>
-        </div>
-        <div class="themes" role="group" aria-label="Theme">
-          <button type="button" data-theme="sys" aria-pressed="true">Sys</button>
-          <button type="button" data-theme="light" aria-pressed="false">Lite</button>
-          <button type="button" data-theme="dark" aria-pressed="false">Dark</button>
-        </div>
-      </div>
     </header>
     <main id="panel-pt" lang="pt-BR">
       <h1>Educação moral e ética</h1>
@@ -252,8 +263,28 @@
       <a href="https://librus.app" title="LIBRUS"><img src="https://librus.app/brand/librus-favicon-dark.svg" alt=""><span>LIBRUS</span></a>
       <a href="https://doutrina.org" title="DOUTRINA"><img src="https://doutrina.org/brand/doutrina-favicon-dark.svg" alt=""><span>DOUTRINA</span></a>
       <a href="https://centro.doutrina.org" title="CENTRO"><img src="https://centro.doutrina.org/brand/centro-favicon-dark.svg" alt=""><span>CENTRO</span></a>
+      <button type="button" id="btn-settings" aria-expanded="false" aria-controls="settings" title="Settings">
+        <i data-lucide="settings" aria-hidden="true"></i>
+      </button>
     </div>
   </footer>
+  <div id="settings" hidden>
+    <h2 id="set-title-pt">Ajustes</h2>
+    <h2 id="set-title-en" hidden>Settings</h2>
+    <p class="muted" id="set-lang-label-pt">Idioma</p>
+    <p class="muted" id="set-lang-label-en" hidden>Language</p>
+    <div class="row langs" role="group" aria-label="Language">
+      <button type="button" id="btn-pt" aria-pressed="true">PT</button>
+      <button type="button" id="btn-en" aria-pressed="false">EN</button>
+    </div>
+    <p class="muted" id="set-theme-label-pt">Tema</p>
+    <p class="muted" id="set-theme-label-en" hidden>Theme</p>
+    <div class="row themes" role="group" aria-label="Theme">
+      <button type="button" data-theme="sys" aria-pressed="true">Sys</button>
+      <button type="button" data-theme="light" aria-pressed="false">Lite</button>
+      <button type="button" data-theme="dark" aria-pressed="false">Dark</button>
+    </div>
+  </div>
   <script src="https://unpkg.com/lucide@0.544.0"></script>
   <script>
     const LANG = "shklr-lang";
@@ -262,6 +293,11 @@
     const langBtns = { pt: document.getElementById("btn-pt"), en: document.getElementById("btn-en") };
     const tags = { pt: document.getElementById("tagline-pt"), en: document.getElementById("tagline-en") };
     const themeBtns = document.querySelectorAll(".themes button");
+    const setTitles = { pt: document.getElementById("set-title-pt"), en: document.getElementById("set-title-en") };
+    const setLangL = { pt: document.getElementById("set-lang-label-pt"), en: document.getElementById("set-lang-label-en") };
+    const setThemeL = { pt: document.getElementById("set-theme-label-pt"), en: document.getElementById("set-theme-label-en") };
+    const settings = document.getElementById("settings");
+    const btnSettings = document.getElementById("btn-settings");
     function applyLang(lang) {
       const next = lang === "en" ? "en" : "pt";
       document.documentElement.lang = next === "pt" ? "pt-BR" : "en";
@@ -269,6 +305,12 @@
       panels.en.hidden = next !== "en";
       tags.pt.hidden = next !== "pt";
       tags.en.hidden = next !== "en";
+      setTitles.pt.hidden = next !== "pt";
+      setTitles.en.hidden = next !== "en";
+      setLangL.pt.hidden = next !== "pt";
+      setLangL.en.hidden = next !== "en";
+      setThemeL.pt.hidden = next !== "pt";
+      setThemeL.en.hidden = next !== "en";
       langBtns.pt.setAttribute("aria-pressed", String(next === "pt"));
       langBtns.en.setAttribute("aria-pressed", String(next === "en"));
       try { localStorage.setItem(LANG, next); } catch (e) {}
@@ -298,6 +340,24 @@
     langBtns.pt.addEventListener("click", () => applyLang("pt"));
     langBtns.en.addEventListener("click", () => applyLang("en"));
     themeBtns.forEach((b) => b.addEventListener("click", () => applyTheme(b.dataset.theme)));
+    btnSettings.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const open = settings.hidden;
+      settings.hidden = !open;
+      btnSettings.setAttribute("aria-expanded", String(open));
+    });
+    document.addEventListener("click", (e) => {
+      if (!settings.hidden && !settings.contains(e.target) && e.target !== btnSettings && !btnSettings.contains(e.target)) {
+        settings.hidden = true;
+        btnSettings.setAttribute("aria-expanded", "false");
+      }
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !settings.hidden) {
+        settings.hidden = true;
+        btnSettings.setAttribute("aria-expanded", "false");
+      }
+    });
     if (window.lucide) lucide.createIcons({ attrs: { "stroke-width": 2.5 } });
   </script>
 </body>
