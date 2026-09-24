@@ -1,0 +1,31 @@
+name: wire-manifest
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/wire-manifest.yml"
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Link apple-touch and manifest
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          t = p.read_text()
+          needle = ' <link rel="icon" href="./favicon.svg" type="image/svg+xml">\n <link rel="stylesheet" href="./site.css">'
+          repl = ''' <link rel="icon" href="./favicon.svg" type="image/svg+xml">\n <link rel="apple-touch-icon" href="./brand/shklr-favicon-dark.svg">\n <link rel="manifest" href="./manifest.webmanifest">\n <link rel="stylesheet" href="./site.css">'''
+          if needle not in t:
+              print('already wired or needle missing')
+          else:
+              p.write_text(t.replace(needle, repl, 1))
+              print('wired')
+          PY
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Wire apple-touch-icon and web manifest in index.html
+          file_pattern: index.html
