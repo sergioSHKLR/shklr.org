@@ -1,0 +1,15 @@
+{
+  "id": "/",
+  "name": "shklr.org",
+  "short_name": "shklr",
+  "description": "Independent project for moral and ethical education.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1a1a1a",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "./brand/shklr-favicon-dark.svg", "sizes": "512x512", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
