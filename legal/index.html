@@ -19,6 +19,8 @@
   <a id="mail-link" href="https://mail.hover.com/" title="correio" aria-label="correio"><i data-lucide="mail"></i></a>
   <a class="library-mark" href="../" aria-label="shklr.org"><i data-lucide="circle" class="logo-mark"></i></a>
   <h1 id="brand"><span>shklr</span></h1>
+  <p class="library-cta" id="tagline-pt">Projeto independente</p>
+  <p class="library-cta" id="tagline-en" hidden>Independent project</p>
  </header>
  <div class="wrap">
   <main id="panel-pt" class="prose" lang="pt-BR">
@@ -101,6 +103,8 @@
     document.documentElement.lang = next === "pt" ? "pt-BR" : "en";
     document.getElementById("panel-pt").hidden = next !== "pt";
     document.getElementById("panel-en").hidden = next !== "en";
+    document.getElementById("tagline-pt").hidden = next !== "pt";
+    document.getElementById("tagline-en").hidden = next !== "en";
     const c = copy[next];
     document.getElementById("settings-title").textContent = c.title;
     document.getElementById("set-hint").textContent = c.hint;
