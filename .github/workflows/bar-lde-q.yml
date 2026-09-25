@@ -1,0 +1,42 @@
+name: bar-lde-q
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/bar-lde-q.yml"
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Insert LDE-Q on the bar
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          t = p.read_text()
+          old = ''' <a href="https://doutrina.org" title="DOUTRINA"><img src="https://doutrina.org/brand/doutrina-favicon-dark.svg" alt=""><span>DOUTRINA</span></a>\n <a href="https://centro.doutrina.org" title="CENTRO"><img src="https://centro.doutrina.org/brand/centro-favicon-dark.svg" alt=""><span>CENTRO</span></a>'''
+          new = ''' <a href="https://doutrina.org" title="DOUTRINA"><img src="https://doutrina.org/brand/doutrina-favicon-dark.svg" alt=""><span>DOUTRINA</span></a>\n <a href="https://lde.doutrina.org" title="LDE-Q"><img src="https://lde.doutrina.org/brand/lde-favicon.svg" alt=""><span>LDE-Q</span></a>\n <a href="https://centro.doutrina.org" title="CENTRO"><img src="https://centro.doutrina.org/brand/centro-favicon-dark.svg" alt=""><span>CENTRO</span></a>'''
+          if 'title="LDE-Q"' in t:
+              print('bar already has LDE-Q')
+          elif old not in t:
+              raise SystemExit('bar block missing')
+          else:
+              p.write_text(t.replace(old, new, 1))
+              print('index bar patched')
+          css = Path('site.css')
+          c = css.read_text()
+          c2 = c.replace('@media (max-width: 520px) { #bar a span { display: none; } }',
+                         '@media (max-width: 720px) { #bar a span { display: none; } }', 1)
+          if c2 != c:
+              css.write_text(c2)
+              print('css breakpoint 720')
+          else:
+              print('css already 720 or missing')
+          PY
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Add LDE-Q to bottom bar (lde.doutrina.org)
+          file_pattern: index.html site.css
