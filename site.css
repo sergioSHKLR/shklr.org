@@ -95,6 +95,8 @@
 }
 footer.colophon p { margin: 0 0 .15rem; }
 footer.colophon a { color: var(--fg); }
+footer.colophon a.colo-legal { display: inline-flex; align-items: center; justify-content: center; gap: .35rem; }
+footer.colophon a.colo-legal svg { width: .95rem; height: .95rem; }
  #bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 500; box-sizing: border-box; height: var(--chrome-bottom); min-height: var(--chrome-bottom); display: flex; align-items: stretch; padding-bottom: var(--safe-bottom); background: var(--bar); color: var(--bar-fg); border-top: 1px solid var(--border); font-family: var(--sans); }
  #bar-title { flex: 1 1 auto; min-width: 0; align-self: center; margin: 0; padding: 0 0.5rem 0 1rem; font-size: 1rem; font-weight: 600; letter-spacing: .1em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--bar-fg); user-select: none; display: inline-flex; align-items: center; gap: .45rem; }
  #bar-end { display: flex; align-items: stretch; margin-left: auto; }
