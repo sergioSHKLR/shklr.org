@@ -18,8 +18,8 @@ function applyLang(lang) {
  document.documentElement.lang = next === "pt" ? "pt-BR" : "en";
  panels.pt.hidden = next !== "pt";
  panels.en.hidden = next !== "en";
- tags.pt.hidden = next !== "pt";
- tags.en.hidden = next !== "en";
+ if (tags.pt) tags.pt.hidden = next !== "pt";
+ if (tags.en) tags.en.hidden = next !== "en";
  const c = copy[next];
  title.textContent = c.title;
  const legal = document.getElementById("colo-legal-label");
