@@ -67,6 +67,7 @@ document.querySelectorAll('input[name="ui-lang"]').forEach((el) => el.addEventLi
 document.querySelectorAll('input[name="ui-theme"]').forEach((el) => el.addEventListener("change", () => applyTheme(el.value)));
 const contact = document.getElementById("contact");
 function openContact() {
+ if (!contact) return;
  if (settings.classList.contains("is-open")) closeSettings();
  const frame = document.getElementById("contact-frame");
  if (frame && !frame.getAttribute("src")) frame.src = frame.dataset.src || "";
@@ -101,7 +102,7 @@ function hideViewerPdf() {
   pdf.removeAttribute("href");
 }
 function closeViewer(){ if (!viewer) return; viewer.classList.remove("is-open"); scrim.classList.remove("is-open"); setTimeout(() => { if (!viewer.classList.contains("is-open")) { viewer.hidden = true; viewerFrame.removeAttribute("src"); viewerImg.removeAttribute("src"); hideViewerPdf(); } if (!anyOpen()) scrim.hidden = true; }, 240); }
-function openViewer(){ if (settings.classList.contains("is-open")) closeSettings(); if (contact.classList.contains("is-open")) closeContact(); viewer.hidden = false; scrim.hidden = false; requestAnimationFrame(() => { scrim.classList.add("is-open"); viewer.classList.add("is-open"); }); }
+function openViewer(){ if (settings.classList.contains("is-open")) closeSettings(); if (contact && contact.classList.contains("is-open")) closeContact(); viewer.hidden = false; scrim.hidden = false; requestAnimationFrame(() => { scrim.classList.add("is-open"); viewer.classList.add("is-open"); }); }
 const closeV = document.getElementById("btn-close-viewer");
 if (closeV) closeV.addEventListener("click", closeViewer);
 document.querySelectorAll("[data-portrait]").forEach((btn) => {
