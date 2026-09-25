@@ -45,6 +45,7 @@
  #settings > header, #contact > header, #viewer > header { display: flex; align-items: center; justify-content: space-between; flex: 0 0 var(--ctrl-h); height: var(--ctrl-h); padding: 0 .5rem 0 1rem; border-bottom: 1px solid var(--line); font-family: var(--sans); font-weight: 600; font-size: .95rem; gap: .5rem; }
  #settings > header button, #contact > header button, #viewer > header button { width: var(--ctrl-h); height: var(--ctrl-h); padding: 0; border: none; background: transparent; color: var(--fg); display: flex; align-items: center; justify-content: center; cursor: pointer; flex: none; }
  #settings > header svg, #contact > header svg, #viewer > header svg { width: 1.25rem; height: 1.25rem; }
+ #settings, #settings * { font-family: var(--sans); }
  #settings > div { padding: 1rem; overflow: auto; display: flex; flex-direction: column; gap: 1.25rem; }
  #settings .modal-hint { margin: 0; font-size: .85rem; color: var(--muted); line-height: 1.4; }
  #settings fieldset { border: 1px solid var(--line); border-radius: 10px; margin: 0; padding: .75rem 1rem; display: flex; flex-direction: column; gap: .45rem; }
