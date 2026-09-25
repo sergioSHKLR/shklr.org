@@ -1,0 +1,39 @@
+name: fix-index-videoconf
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/fix-index-videoconf.yml"
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore index and patch CENTRO line
+        run: |
+          git checkout 352c4977b82e92b663342b7cbd9c877443f76885 -- index.html
+          python3 <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          t = p.read_text()
+          t = t.replace(
+            '<a class="card centro nest-2" href="https://centro.doutrina.org"><img class="mark" src="https://centro.doutrina.org/brand/centro-favicon-dark.svg" alt=""><span><strong>CENTRO</strong><span class="muted">Ache · Leia · Consulte · Anote</span></span></a>',
+            '<a class="card centro nest-2" href="https://centro.doutrina.org"><img class="mark" src="https://centro.doutrina.org/brand/centro-favicon-dark.svg" alt=""><span><strong>CENTRO</strong><span class="muted">Ache · Leia · Consulte · Anote + videoconf</span></span></a>',
+          )
+          t = t.replace(
+            '<a class="card centro nest-2" href="https://centro.doutrina.org"><img class="mark" src="https://centro.doutrina.org/brand/centro-favicon-dark.svg" alt=""><span><strong>CENTRO</strong><span class="muted">Find · Read · Lookup · Note</span></span></a>',
+            '<a class="card centro nest-2" href="https://centro.doutrina.org"><img class="mark" src="https://centro.doutrina.org/brand/centro-favicon-dark.svg" alt=""><span><strong>CENTRO</strong><span class="muted">Find · Read · Lookup · Note + videoconf</span></span></a>',
+          )
+          if 'videoconf' not in t:
+              raise SystemExit('videoconf patch missed')
+          p.write_text(t)
+          print('ok', t.count('videoconf'))
+          PY
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Restore index; CENTRO + videoconf
+          file_pattern: index.html
