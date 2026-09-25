@@ -57,7 +57,7 @@
     });
   }
   var style = document.createElement("style");
-  style.textContent = "#settings .settings-ver,#settings .version-line{display:inline-flex;align-items:center;gap:.45rem;flex-wrap:wrap}#settings button.upd{display:inline-flex;align-items:center;gap:.35rem;height:auto;min-height:0;min-width:0;margin:0;padding:.2rem .6rem;border:1px solid var(--line,#ccc);border-radius:999px;background:transparent;color:inherit;font-family:Quicksand,system-ui,sans-serif;font-size:.72rem;font-weight:600;line-height:1.2;cursor:pointer}#settings button.upd svg{width:18px;height:18px;display:block}#settings button.upd:disabled{opacity:.45;cursor:default}";
+  style.textContent = "#settings .settings-ver,#settings .version-line{display:inline-flex;align-items:center;gap:.45rem;flex-wrap:wrap}#settings button.upd{display:inline-flex;align-items:center;gap:.35rem;height:auto;min-height:0;min-width:0;margin:0;padding:.2rem .6rem;border:1px solid var(--line,#ccc);border-radius:999px;background:transparent;color:inherit;font-family:Quicksand,system-ui,sans-serif;font-size:15px;font-weight:600;line-height:1.2;cursor:pointer}#settings button.upd svg{width:18px;height:18px;display:block}#settings button.upd:disabled{opacity:.45;cursor:default}";
   document.head.appendChild(style);
   new MutationObserver(paint).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ["lang"] });
   paint();
