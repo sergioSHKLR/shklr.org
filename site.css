@@ -29,7 +29,7 @@
  .wrap { max-width: 44rem; margin: 0 auto; padding: 1.5rem 1.25rem calc(var(--chrome-bottom) + 2rem); }
  header { text-align: center; margin-bottom: 2rem; }
  .logo-mark { width: 1.15em; height: 1.15em; color: var(--brand); }
- #bar-title .logo-mark { width: 22px; height: 22px; flex: none; }
+ #bar-title .logo-mark { width: calc(1.35 * 15px); height: calc(1.35 * 15px); flex: none; }
  #bar button { background: transparent; border: none; border-radius: 0; color: var(--bar-fg); cursor: pointer; height: var(--ctrl-h); min-width: var(--ctrl-h); padding: 0 1rem; display: inline-flex; align-items: center; justify-content: center; font-family: var(--sans); }
  #bar button:hover, #bar button[aria-expanded="true"] { background: rgba(255,255,255,0.12); }
  #bar button svg { width: 1.35rem; height: 1.35rem; display: block; }
@@ -113,7 +113,7 @@ footer.colophon a { color: var(--fg); }
   letter-spacing: .1em;
 }
  #bar a:hover { background: rgba(255,255,255,0.12); }
- #bar a img { width: 22px; height: 22px; }
+ #bar a img { width: calc(1.35 * 15px); height: calc(1.35 * 15px); }
  @media (max-width: 720px) { #bar a span { display: none; } }
  [hidden] { display: none !important; }
 #mast {
