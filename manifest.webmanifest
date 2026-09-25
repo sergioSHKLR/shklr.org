@@ -10,6 +10,6 @@
   "theme_color": "#fff",
   "lang": "pt-BR",
   "icons": [
-    { "src": "./brand/shklr-favicon-dark.svg", "sizes": "512x512", "type": "image/svg+xml", "purpose": "any" }
+    { "src": "./brand/shklr-favicon-dark.svg?v=2", "sizes": "512x512", "type": "image/svg+xml", "purpose": "any" }
   ]
 }
