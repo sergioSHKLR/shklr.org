@@ -21,6 +21,10 @@
     var lang = (document.documentElement.lang || "").toLowerCase();
     return lang.indexOf("en") === 0 ? "Update" : "Atualizar";
   }
+  function legalLabel() {
+    var lang = (document.documentElement.lang || "").toLowerCase();
+    return lang.indexOf("en") === 0 ? "Legal notice" : "Aviso legal";
+  }
   function icon() {
     return '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>';
   }
@@ -47,6 +51,9 @@
       }
       var span = btn.querySelector("span");
       if (span) span.textContent = label();
+    });
+    document.querySelectorAll("#set-legal").forEach(function (a) {
+      a.textContent = legalLabel();
     });
   }
   var style = document.createElement("style");
