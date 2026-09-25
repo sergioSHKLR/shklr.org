@@ -25,7 +25,7 @@ function applyLang(lang) {
  const legal = document.getElementById("colo-legal-label");
  const name = document.getElementById("colo-name");
  if (legal) legal.textContent = next === "en" ? "Legal notice" : "Aviso legal";
- if (name) name.textContent = next === "en" ? "SHKLR · family name, independent project" : "SHKLR · sobrenome, projeto independente";
+ if (name) name.textContent = next === "en" ? "SHKLR · independent project" : "SHKLR · projeto independente";
  const contactHeading = document.getElementById("contact-title");
  if (contactHeading) contactHeading.textContent = next === "en" ? "Message" : "Mensagem";
  hint.textContent = c.hint;
