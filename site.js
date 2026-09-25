@@ -100,7 +100,7 @@ function hideViewerPdf() {
   pdf.hidden = true;
   pdf.removeAttribute("href");
 }
-function closeViewer(){ if (!viewer) return; viewer.classList.remove("is-open"); setTimeout(() => { if (!viewer.classList.contains("is-open")) { viewer.hidden = true; viewerFrame.removeAttribute("src"); viewerImg.removeAttribute("src"); hideViewerPdf(); } if (!anyOpen()) scrim.hidden = true; }, 240); }
+function closeViewer(){ if (!viewer) return; viewer.classList.remove("is-open"); scrim.classList.remove("is-open"); setTimeout(() => { if (!viewer.classList.contains("is-open")) { viewer.hidden = true; viewerFrame.removeAttribute("src"); viewerImg.removeAttribute("src"); hideViewerPdf(); } if (!anyOpen()) scrim.hidden = true; }, 240); }
 function openViewer(){ if (settings.classList.contains("is-open")) closeSettings(); if (contact.classList.contains("is-open")) closeContact(); viewer.hidden = false; scrim.hidden = false; requestAnimationFrame(() => { scrim.classList.add("is-open"); viewer.classList.add("is-open"); }); }
 const closeV = document.getElementById("btn-close-viewer");
 if (closeV) closeV.addEventListener("click", closeViewer);
