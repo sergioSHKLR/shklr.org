@@ -12,14 +12,14 @@
  }
  html[data-theme="light"] {
  color-scheme: light;
- --bg: #f5f5f5; --fg: #111; --muted: #555; --line: #ccc; --lift: #ececec;
+ --bg: #fff; --fg: #111; --muted: #555; --line: #ccc; --lift: #ececec;
  --librus: #6aa84f; --doutrina: #3c78d8; --centro: #cc0000; --lde: #c17f3e; --shklr: #8b5cf6; --brand: #8b5cf6;
  --bar: #111; --bar-fg: #fff; --border: #ccc;
  }
  @media (prefers-color-scheme: light) {
  html[data-theme="sys"] {
  color-scheme: light;
- --bg: #f5f5f5; --fg: #111; --muted: #555; --line: #ccc; --lift: #ece8e0;
+ --bg: #fff; --fg: #111; --muted: #555; --line: #ccc; --lift: #ece8e0;
  --librus: #6aa84f; --doutrina: #3c78d8; --centro: #cc0000; --lde: #c17f3e; --shklr: #8b5cf6; --brand: #8b5cf6;
  --bar: #111; --bar-fg: #fff; --border: #ccc;
  }
