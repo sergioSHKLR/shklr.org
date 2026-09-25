@@ -83,7 +83,18 @@
  .card img.mark { width: 28px; height: 28px; flex: none; margin-top: 2px; }
  .card strong { display: block; font-family: var(--sans); font-size: 1rem; }
  .legal { font-size: .72rem; line-height: 1.45; color: var(--muted); }
- footer.notes { margin-top: 2rem; color: var(--muted); font-size: .7rem; text-align: center; }
+ footer.colophon {
+  margin-top: 2.4rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: .75rem;
+  line-height: 1.5;
+}
+footer.colophon p { margin: 0 0 .15rem; }
+footer.colophon a { color: var(--fg); }
  #bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 500; box-sizing: border-box; height: var(--chrome-bottom); min-height: var(--chrome-bottom); display: flex; align-items: stretch; padding-bottom: var(--safe-bottom); background: var(--bar); color: var(--bar-fg); border-top: 1px solid var(--border); font-family: var(--sans); }
  #bar-title { flex: 1 1 auto; min-width: 0; align-self: center; margin: 0; padding: 0 0.5rem 0 1rem; font-size: 1rem; font-weight: 600; letter-spacing: .1em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--bar-fg); user-select: none; display: inline-flex; align-items: center; gap: .45rem; }
  #bar-end { display: flex; align-items: stretch; margin-left: auto; }
