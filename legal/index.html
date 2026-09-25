@@ -79,7 +79,6 @@
    <button type="button" id="btn-close-settings" aria-label="Fechar"><i data-lucide="x" aria-hidden="true"></i></button>
   </header>
   <div>
-   <p class="modal-hint" id="set-hint">Idioma e tema desta página.</p>
    <fieldset>
     <legend id="set-lang-legend">Idioma</legend>
     <label><input type="radio" name="ui-lang" value="pt" checked> <span>Português</span></label>
@@ -114,7 +113,6 @@
     document.getElementById("tagline-en").hidden = next !== "en";
     const c = copy[next];
     document.getElementById("settings-title").textContent = c.title;
-    document.getElementById("set-hint").textContent = c.hint;
     document.getElementById("set-lang-legend").textContent = c.lang;
     document.getElementById("set-theme-legend").textContent = c.theme;
     document.getElementById("set-sys").textContent = c.sys;

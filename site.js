@@ -6,7 +6,6 @@ const settings = document.getElementById("settings");
 const scrim = document.getElementById("scrim");
 const btnSettings = document.getElementById("btn-settings");
 const title = document.getElementById("settings-title");
-const hint = document.getElementById("set-hint");
 const langLegend = document.getElementById("set-lang-legend");
 const themeLegend = document.getElementById("set-theme-legend");
 const copy = {
@@ -28,7 +27,6 @@ function applyLang(lang) {
  if (about) about.textContent = c.about;
  const contactHeading = document.getElementById("contact-title");
  if (contactHeading) contactHeading.textContent = next === "en" ? "Message" : "Mensagem";
- hint.textContent = c.hint;
  langLegend.textContent = c.lang;
  themeLegend.textContent = c.theme;
  document.getElementById("set-sys").textContent = c.sys;
