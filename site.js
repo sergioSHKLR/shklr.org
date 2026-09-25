@@ -10,8 +10,8 @@ const hint = document.getElementById("set-hint");
 const langLegend = document.getElementById("set-lang-legend");
 const themeLegend = document.getElementById("set-theme-legend");
 const copy = {
-pt: { title: "Ajustes", hint: "Idioma e tema desta página.", lang: "Idioma", theme: "Tema", sys: "Sistema", light: "Claro", dark: "Escuro" },
-en: { title: "Settings", hint: "Language and theme for this page.", lang: "Language", theme: "Theme", sys: "System", light: "Light", dark: "Dark" }
+pt: { title: "Ajustes", hint: "Idioma e tema desta página.", lang: "Idioma", theme: "Tema", sys: "Sistema", light: "Claro", dark: "Escuro", about: "Sobre", legal: "Aviso legal" },
+en: { title: "Settings", hint: "Language and theme for this page.", lang: "Language", theme: "Theme", sys: "System", light: "Light", dark: "Dark", about: "About", legal: "Legal notice" }
 };
 function applyLang(lang) {
  const next = lang === "en" ? "en" : "pt";
@@ -22,10 +22,10 @@ function applyLang(lang) {
  if (tags.en) tags.en.hidden = next !== "en";
  const c = copy[next];
  title.textContent = c.title;
- const legal = document.getElementById("colo-legal-label");
- const name = document.getElementById("colo-name");
- if (legal) legal.textContent = next === "en" ? "Legal notice" : "Aviso legal";
- if (name) name.textContent = "Itajaí, SC, BR";
+ const legal = document.getElementById("set-legal");
+ const about = document.getElementById("set-about-legend");
+ if (legal) legal.textContent = c.legal;
+ if (about) about.textContent = c.about;
  const contactHeading = document.getElementById("contact-title");
  if (contactHeading) contactHeading.textContent = next === "en" ? "Message" : "Mensagem";
  hint.textContent = c.hint;

@@ -91,6 +91,10 @@
     <label><input type="radio" name="ui-theme" value="light"> <span id="set-light">Claro</span></label>
     <label><input type="radio" name="ui-theme" value="dark"> <span id="set-dark">Escuro</span></label>
    </fieldset>
+   <fieldset>
+    <legend id="set-about-legend">Sobre</legend>
+    <p class="settings-meta"><a id="set-legal" href="./">Aviso legal</a></p>
+   </fieldset>
   </div>
  </div>
  <script src="https://unpkg.com/lucide@0.544.0"></script>
@@ -98,8 +102,8 @@
   const LANG = "shklr-lang";
   const THEME = "shklr-theme";
   const copy = {
-    pt: { title: "Ajustes", hint: "Idioma e tema desta página.", lang: "Idioma", theme: "Tema", sys: "Sistema", light: "Claro", dark: "Escuro", bar: "Ajustes" },
-    en: { title: "Settings", hint: "Language and theme for this page.", lang: "Language", theme: "Theme", sys: "System", light: "Light", dark: "Dark", bar: "Settings" }
+    pt: { title: "Ajustes", hint: "Idioma e tema desta página.", lang: "Idioma", theme: "Tema", sys: "Sistema", light: "Claro", dark: "Escuro", bar: "Ajustes", about: "Sobre", legal: "Aviso legal" },
+    en: { title: "Settings", hint: "Language and theme for this page.", lang: "Language", theme: "Theme", sys: "System", light: "Light", dark: "Dark", bar: "Settings", about: "About", legal: "Legal notice" }
   };
   function applyLang(lang) {
     const next = lang === "en" ? "en" : "pt";
@@ -116,6 +120,8 @@
     document.getElementById("set-sys").textContent = c.sys;
     document.getElementById("set-light").textContent = c.light;
     document.getElementById("set-dark").textContent = c.dark;
+    document.getElementById("set-about-legend").textContent = c.about;
+    document.getElementById("set-legal").textContent = c.legal;
     document.getElementById("btn-settings").title = c.bar;
     document.querySelectorAll('input[name="ui-lang"]').forEach((el) => { el.checked = el.value === next; });
     try { localStorage.setItem(LANG, next); } catch (e) {}
