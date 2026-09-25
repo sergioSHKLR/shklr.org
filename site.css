@@ -130,10 +130,11 @@ html[data-theme="dark"] #mast { background: #111; color: #f0f0f0; border-bottom-
 #mast .library-cta { margin: 0; font-size: .9rem; color: #555; font-weight: 400; }
 html[data-theme="dark"] #mast .library-cta { color: #a0a0a0; }
 @media (prefers-color-scheme: dark) { html[data-theme="sys"] #mast .library-cta { color: #a0a0a0; } }
-#wa-link { position: absolute; top: .6rem; right: .75rem; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; color: #888; text-decoration: none; border-radius: 8px; }
-#wa-link:hover { color: var(--fg); background: rgba(0,0,0,.06); }
-html[data-theme="dark"] #wa-link:hover { background: rgba(255,255,255,.08); }
-#wa-link svg { width: 1.25rem; height: 1.25rem; fill: currentColor; }
+#mail-link { position: absolute; top: .6rem; right: .75rem; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; color: #888; text-decoration: none; border-radius: 8px; }
+#mail-link:hover { color: var(--fg); background: rgba(0,0,0,.06); }
+html[data-theme="dark"] #mail-link:hover { background: rgba(255,255,255,.08); }
+#mail-link svg { width: 1.15rem; height: 1.15rem; }
+#bar a#btn-wa svg { width: 1.35rem; height: 1.35rem; fill: currentColor; display: block; }
 .tl { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
 .tl li { position: relative; padding: 0 0 .35rem 1rem; }
 .tl li::before { content: ""; position: absolute; left: -5px; top: 1.05rem; width: 8px; height: 8px; border-radius: 50%; background: var(--brand); }
