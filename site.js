@@ -22,6 +22,12 @@ function applyLang(lang) {
  tags.en.hidden = next !== "en";
  const c = copy[next];
  title.textContent = c.title;
+ const kicker = document.getElementById("colo-kicker");
+ const legal = document.getElementById("colo-legal");
+ const name = document.getElementById("colo-name");
+ if (kicker) kicker.textContent = next === "en" ? "Notes" : "Notas";
+ if (legal) legal.textContent = next === "en" ? "Legal notice" : "Aviso legal";
+ if (name) name.textContent = next === "en" ? "SHKLR · family name, independent project" : "SHKLR · sobrenome, projeto independente";
  const contactHeading = document.getElementById("contact-title");
  if (contactHeading) contactHeading.textContent = next === "en" ? "Message" : "Mensagem";
  hint.textContent = c.hint;
