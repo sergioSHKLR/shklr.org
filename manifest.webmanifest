@@ -5,11 +5,16 @@
   "description": "Independent project for moral and ethical education.",
   "start_url": "/",
   "scope": "/",
+  "display_override": ["standalone", "minimal-ui"],
   "display": "standalone",
+  "orientation": "any",
   "background_color": "#fff",
   "theme_color": "#fff",
   "lang": "pt-BR",
   "icons": [
-    { "src": "./brand/shklr-favicon-dark.svg?v=2", "sizes": "512x512", "type": "image/svg+xml", "purpose": "any" }
+    { "src": "./pwa/shklr-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./pwa/shklr-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./pwa/shklr-192-maskable.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "./pwa/shklr-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }

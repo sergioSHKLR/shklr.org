@@ -6,11 +6,20 @@
  <title>Aviso legal — SHKLR</title>
  <meta name="description" content="Aviso legal de shklr.org, librus.app, doutrina.org, lde.doutrina.org e centro.doutrina.org.">
  <meta name="author" content="sergioSHKLR">
+ <meta name="theme-color" content="#fff" media="(prefers-color-scheme: light)" id="meta-theme-color-light">
+ <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" id="meta-theme-color-dark">
+ <meta name="theme-color" content="#fff" id="meta-theme-color">
+ <meta name="apple-mobile-web-app-title" content="SHKLR">
+ <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+ <meta name="apple-mobile-web-app-capable" content="yes">
+ <meta name="mobile-web-app-capable" content="yes">
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Zeyada&display=swap" rel="stylesheet">
  <link rel="icon" href="../favicon.svg?v=2" type="image/svg+xml">
- <link rel="stylesheet" href="../site.css?v=place2">
+ <link rel="apple-touch-icon" href="../pwa/shklr-apple-touch-icon.png" sizes="180x180">
+ <link rel="manifest" href="../manifest.webmanifest">
+ <link rel="stylesheet" href="../site.css?v=app1">
  <style>
   .prose a { color: var(--fg); }
   .prose h1 { font-family: var(--sans); color: var(--muted); }
@@ -125,10 +134,25 @@
     document.querySelectorAll('input[name="ui-lang"]').forEach((el) => { el.checked = el.value === next; });
     try { localStorage.setItem(LANG, next); } catch (e) {}
   }
+  function paintThemeColor(mode) {
+    const bgL = "#fff";
+    const bgD = "#1a1a1a";
+    const resolved = mode === "dark" || mode === "light"
+      ? mode
+      : (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    const tc = document.getElementById("meta-theme-color");
+    if (tc) tc.content = resolved === "dark" ? bgD : bgL;
+    const tcl = document.getElementById("meta-theme-color-light");
+    const tcd = document.getElementById("meta-theme-color-dark");
+    if (mode === "light") { if (tcl) tcl.content = bgL; if (tcd) tcd.content = bgL; }
+    else if (mode === "dark") { if (tcl) tcl.content = bgD; if (tcd) tcd.content = bgD; }
+    else { if (tcl) tcl.content = bgL; if (tcd) tcd.content = bgD; }
+  }
   function applyTheme(mode) {
     const next = mode === "light" || mode === "dark" ? mode : "sys";
     document.documentElement.dataset.theme = next;
     document.querySelectorAll('input[name="ui-theme"]').forEach((el) => { el.checked = el.value === next; });
+    paintThemeColor(next);
     try { localStorage.setItem(THEME, next); } catch (e) {}
   }
   const settings = document.getElementById("settings");

@@ -35,10 +35,25 @@ function applyLang(lang) {
  document.querySelectorAll('input[name="ui-lang"]').forEach((el) => { el.checked = el.value === next; });
  try { localStorage.setItem(LANG, next); } catch (e) {}
 }
+function paintThemeColor(mode) {
+ const bgL = "#fff";
+ const bgD = "#1a1a1a";
+ const resolved = mode === "dark" || mode === "light"
+  ? mode
+  : (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+ const tc = document.getElementById("meta-theme-color");
+ if (tc) tc.content = resolved === "dark" ? bgD : bgL;
+ const tcl = document.getElementById("meta-theme-color-light");
+ const tcd = document.getElementById("meta-theme-color-dark");
+ if (mode === "light") { if (tcl) tcl.content = bgL; if (tcd) tcd.content = bgL; }
+ else if (mode === "dark") { if (tcl) tcl.content = bgD; if (tcd) tcd.content = bgD; }
+ else { if (tcl) tcl.content = bgL; if (tcd) tcd.content = bgD; }
+}
 function applyTheme(mode) {
  const next = mode === "light" || mode === "dark" ? mode : "sys";
  document.documentElement.dataset.theme = next;
  document.querySelectorAll('input[name="ui-theme"]').forEach((el) => { el.checked = el.value === next; });
+ paintThemeColor(next);
  try { localStorage.setItem(THEME, next); } catch (e) {}
 }
 function openSettings() {
