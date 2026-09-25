@@ -89,7 +89,13 @@ const viewerTitle = document.getElementById("viewer-title");
 const viewerImg = document.getElementById("viewer-img");
 const viewerFrame = document.getElementById("viewer-frame");
 function anyOpen(){ return [settings, contact, viewer].some((el) => el && el.classList.contains("is-open")); }
-function closeViewer(){ if (!viewer) return; viewer.classList.remove("is-open"); setTimeout(() => { if (!viewer.classList.contains("is-open")) { viewer.hidden = true; viewerFrame.removeAttribute("src"); viewerImg.removeAttribute("src"); } if (!anyOpen()) scrim.hidden = true; }, 240); }
+function hideViewerPdf() {
+  const pdf = document.getElementById("viewer-pdf");
+  if (!pdf) return;
+  pdf.hidden = true;
+  pdf.removeAttribute("href");
+}
+function closeViewer(){ if (!viewer) return; viewer.classList.remove("is-open"); setTimeout(() => { if (!viewer.classList.contains("is-open")) { viewer.hidden = true; viewerFrame.removeAttribute("src"); viewerImg.removeAttribute("src"); hideViewerPdf(); } if (!anyOpen()) scrim.hidden = true; }, 240); }
 function openViewer(){ if (settings.classList.contains("is-open")) closeSettings(); if (contact.classList.contains("is-open")) closeContact(); viewer.hidden = false; scrim.hidden = false; requestAnimationFrame(() => { scrim.classList.add("is-open"); viewer.classList.add("is-open"); }); }
 const closeV = document.getElementById("btn-close-viewer");
 if (closeV) closeV.addEventListener("click", closeViewer);
@@ -100,11 +106,32 @@ document.querySelectorAll("[data-portrait]").forEach((btn) => {
   const en = document.documentElement.lang === "en";
   if (viewerTitle) viewerTitle.textContent = (en ? btn.dataset.portraitTitleEn : btn.dataset.portraitTitlePt) || "";
   if (viewerFrame) { viewerFrame.hidden = true; viewerFrame.removeAttribute("src"); }
+  hideViewerPdf();
   viewerImg.hidden = false;
   viewerImg.alt = (btn.querySelector("img") && btn.querySelector("img").alt) || "";
   viewerImg.src = src;
   openViewer();
  });
+});
+document.querySelectorAll("[data-poster]").forEach((a) => {
+  a.addEventListener("click", (e) => {
+    e.preventDefault();
+    const en = document.documentElement.lang === "en";
+    if (viewerTitle) viewerTitle.textContent = (en ? a.dataset.titleEn : a.dataset.titlePt) || a.textContent;
+    if (viewerFrame) { viewerFrame.hidden = true; viewerFrame.removeAttribute("src"); }
+    viewerImg.hidden = false;
+    viewerImg.alt = a.textContent.trim();
+    viewerImg.src = a.dataset.png || "";
+    const pdf = document.getElementById("viewer-pdf");
+    if (pdf) {
+      pdf.hidden = false;
+      pdf.href = a.href;
+      pdf.target = "_blank";
+      pdf.rel = "noopener";
+      pdf.textContent = en ? "PDF for printing" : "PDF para impressão";
+    }
+    openViewer();
+  });
 });
 document.querySelectorAll(".tl button").forEach((btn) => {
  btn.addEventListener("click", () => {
