@@ -78,7 +78,8 @@ function openContact() {
  if (bar) bar.setAttribute("aria-expanded", "true");
 }
 function closeContact() {
- contact.classList.remove("is-open");
+  if (!contact) return;
+  contact.classList.remove("is-open");
  const bar = document.getElementById("btn-contact-bar");
  if (bar) bar.setAttribute("aria-expanded", "false");
  if (!settings.classList.contains("is-open")) scrim.classList.remove("is-open");
