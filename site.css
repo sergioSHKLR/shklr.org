@@ -28,7 +28,7 @@
  body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--serif); font-size: 17px; line-height: 1.55; }
  .wrap { max-width: 44rem; margin: 0 auto; padding: 1.5rem 1.25rem calc(var(--chrome-bottom) + 2rem); }
  header { text-align: center; margin-bottom: 2rem; }
- .logo-mark { width: 1.15em; height: 1.15em; color: var(--brand); stroke-width: 3.5; }
+ .logo-mark { width: 1.15em; height: 1.15em; color: var(--brand); }
  #bar-title .logo-mark { width: 22px; height: 22px; flex: none; }
  #bar button { background: transparent; border: none; border-radius: 0; color: var(--bar-fg); cursor: pointer; height: var(--ctrl-h); min-width: var(--ctrl-h); padding: 0 1rem; display: inline-flex; align-items: center; justify-content: center; font-family: var(--sans); }
  #bar button:hover, #bar button[aria-expanded="true"] { background: rgba(255,255,255,0.12); }
@@ -125,7 +125,7 @@ html[data-theme="dark"] #mast { background: #111; color: #f0f0f0; border-bottom-
   html[data-theme="sys"] #mast { background: #111; color: #f0f0f0; border-bottom-color: #333; }
 }
 #mast .library-mark { width: calc(3.5 * 15px); height: calc(3.5 * 15px); color: var(--brand); display: flex; align-items: center; justify-content: center; }
-#mast .library-mark svg { width: calc(3.5 * 15px); height: calc(3.5 * 15px); stroke-width: 2; }
+#mast .library-mark svg { width: calc(3.5 * 15px); height: calc(3.5 * 15px); }
 #mast h1 { margin: 0; font-family: var(--sans); font-size: calc(1.35 * 15px); font-weight: 700; letter-spacing: 0.1em; line-height: 1.2; color: var(--fg); }
 #mast .library-cta { margin: 0; font-size: calc(0.9 * 15px); line-height: 1.35; color: #555; font-weight: 400; }
 html[data-theme="dark"] #mast .library-cta { color: #a0a0a0; }

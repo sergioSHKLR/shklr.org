@@ -183,5 +183,4 @@ function nextThought() {
 }
 paintThoughts();
 document.querySelectorAll("[data-thought-next]").forEach((btn) => btn.addEventListener("click", nextThought));
-if (window.lucide) lucide.createIcons({ attrs: { "stroke-width": 2.5 } });
-document.querySelectorAll(".logo-mark").forEach((el) => el.setAttribute("stroke-width", "3.5"));
+if (window.lucide) lucide.createIcons({ attrs: { "stroke-width": 2 } });
