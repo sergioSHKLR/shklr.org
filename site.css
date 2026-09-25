@@ -134,7 +134,7 @@ html[data-theme="dark"] #mast .library-cta { color: #a0a0a0; }
 #mail-link:hover { color: var(--fg); background: rgba(0,0,0,.06); }
 html[data-theme="dark"] #mail-link:hover { background: rgba(255,255,255,.08); }
 #mail-link svg { width: 1.15rem; height: 1.15rem; }
-#bar a#btn-wa svg { width: 1.35rem; height: 1.35rem; fill: currentColor; display: block; }
+#bar a#btn-wa svg { width: 1.35rem; height: 1.35rem; display: block; }
 .tl { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
 .tl li { position: relative; padding: 0 0 .35rem 1rem; }
 .tl li::before { content: ""; position: absolute; left: -5px; top: 1.05rem; width: 8px; height: 8px; border-radius: 50%; background: var(--brand); }
