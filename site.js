@@ -196,4 +196,3 @@ function nextThought() {
 }
 paintThoughts();
 document.querySelectorAll("[data-thought-next]").forEach((btn) => btn.addEventListener("click", nextThought));
-if (window.lucide) lucide.createIcons({ attrs: { "stroke-width": 2 } });
