@@ -15,11 +15,12 @@
  <meta name="mobile-web-app-capable" content="yes">
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Zeyada&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Zeyada&display=swap" media="print" onload="this.media='all'">
+ <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Zeyada&display=swap"></noscript>
  <link rel="icon" href="../favicon.svg?v=2" type="image/svg+xml">
  <link rel="apple-touch-icon" href="../pwa/shklr-apple-touch-icon.png" sizes="180x180">
  <link rel="manifest" href="../manifest.webmanifest">
- <link rel="stylesheet" href="../site.css?v=app1">
+ <link rel="stylesheet" href="../site.css?v=app2">
  <style>
   .prose a { color: var(--fg); }
   .prose h1 { font-family: var(--sans); color: var(--muted); }
@@ -28,8 +29,8 @@
 </head>
 <body>
  <header id="mast">
-  <a id="mail-link" href="https://mail.hover.com/" title="correio" aria-label="correio"><i data-lucide="mail"></i></a>
-  <a class="library-mark" href="../" aria-label="SHKLR"><i data-lucide="circle" class="logo-mark"></i></a>
+  <a id="mail-link" href="https://mail.hover.com/" title="correio" aria-label="correio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></a>
+  <a class="library-mark" href="../" aria-label="SHKLR"><svg class="logo-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/></svg></a>
   <h1 id="brand"><span>SHKLR</span></h1>
   <p class="library-cta" id="tagline-pt">Projeto independente</p>
   <p class="library-cta" id="tagline-en" hidden>Independent project</p>
@@ -75,17 +76,17 @@
   </main>
  </div>
  <footer id="bar">
-  <a id="bar-title" href="../"><i data-lucide="circle" class="logo-mark" aria-hidden="true"></i> SHKLR</a>
+  <a id="bar-title" href="../"><svg class="logo-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/></svg> SHKLR</a>
   <div id="bar-end">
-   <a id="btn-wa" href="https://wa.me/5547988695995" title="WhatsApp" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
-   <button type="button" id="btn-settings" aria-expanded="false" aria-controls="settings" title="Ajustes" aria-label="Ajustes"><i data-lucide="settings" aria-hidden="true"></i></button>
+   <a id="btn-wa" href="https://wa.me/5547988695995" title="WhatsApp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg></a>
+   <button type="button" id="btn-settings" aria-expanded="false" aria-controls="settings" title="Ajustes" aria-label="Ajustes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></svg></button>
   </div>
  </footer>
  <div id="scrim" hidden></div>
  <div id="settings" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="settings-title">
   <header>
    <span id="settings-title">Ajustes</span>
-   <button type="button" id="btn-close-settings" aria-label="Fechar"><i data-lucide="x" aria-hidden="true"></i></button>
+   <button type="button" id="btn-close-settings" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
   </header>
   <div>
    <fieldset>
@@ -106,7 +107,6 @@
    </fieldset>
   </div>
  </div>
- <script src="https://unpkg.com/lucide@0.544.0"></script>
  <script>
   const LANG = "shklr-lang";
   const THEME = "shklr-theme";
@@ -178,8 +178,7 @@
     if (st === "light" || st === "dark" || st === "sys" || st === "system") theme = st === "system" ? "sys" : st;
   } catch (e) {}
   applyLang(lang); applyTheme(theme);
-  if (window.lucide) lucide.createIcons({ attrs: { "stroke-width": 2 } });
  </script>
- <script src="../upd.js"></script>
+ <script src="../upd.js?v=app2"></script>
 </body>
 </html>
