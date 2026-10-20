@@ -50,15 +50,25 @@
         el.appendChild(btn);
       }
       var span = btn.querySelector("span");
-      if (span) span.textContent = label();
+      var nextLabel = label();
+      if (span && span.textContent !== nextLabel) span.textContent = nextLabel;
     });
     document.querySelectorAll("#set-legal").forEach(function (a) {
-      a.textContent = legalLabel();
+      var nextLegal = legalLabel();
+      if (a.textContent !== nextLegal) a.textContent = nextLegal;
     });
   }
   var style = document.createElement("style");
   style.textContent = "#settings .settings-ver,#settings .version-line{display:inline-flex;align-items:center;gap:.45rem;flex-wrap:wrap}#settings button.upd{display:inline-flex;align-items:center;gap:.35rem;height:auto;min-height:0;min-width:0;margin:0;padding:.2rem .6rem;border:1px solid var(--line,#ccc);border-radius:999px;background:transparent;color:inherit;font-family:Quicksand,system-ui,sans-serif;font-size:15px;font-weight:600;line-height:1.2;cursor:pointer}#settings button.upd svg{width:18px;height:18px;display:block}#settings button.upd:disabled{opacity:.45;cursor:default}";
   document.head.appendChild(style);
-  new MutationObserver(paint).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ["lang"] });
+  function paintSafe() {
+    // Disconnect while painting so textContent writes cannot re-enter.
+    observer.disconnect();
+    try { paint(); } finally {
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+    }
+  }
+  var observer = new MutationObserver(paintSafe);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
   paint();
 })();
