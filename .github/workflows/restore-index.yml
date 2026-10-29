@@ -1,0 +1,52 @@
+name: restore-index
+on:
+  push:
+    paths:
+      - ".github/workflows/restore-index.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore last good index and point PDFs at uploaded files
+        run: |
+          git checkout cac674a774b20c8d49af2d988b0b188dd9d77965 -- index.html
+          python3 <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          t = p.read_text()
+          t = t.replace('.sign img { width: 200px; height: 200px;', '.sign img { width: 280px; height: 280px;')
+          t = t.replace('width="200" height="200"', 'width="280" height="280"')
+          t = t.replace('href="https://pt.shklr.org/images/us-round.jpg"', 'href="./images/us-round.jpg"')
+          t = t.replace('src="https://pt.shklr.org/images/us-round.jpg"', 'src="./images/us-round.jpg"')
+          pairs = {
+            'https://pt.shklr.org/framework/pdf/preces.pdf': 'https://github.com/sergioSHKLR/shklr.org/blob/main/.github/preces.pdf',
+            'https://pt.shklr.org/framework/pdf/obras-b%C3%A1sicas.pdf': 'https://github.com/sergioSHKLR/shklr.org/blob/main/.github/obras-b%C3%A1sicas.pdf',
+            'https://pt.shklr.org/framework/pdf/protector-portrait.pdf': 'https://github.com/sergioSHKLR/shklr.org/blob/main/.github/protector-portrait.pdf',
+            'https://pt.shklr.org/framework/pdf/anguish-portrait.pdf': 'https://github.com/sergioSHKLR/shklr.org/blob/main/.github/anguish-portrait.pdf',
+          }
+          for old, new in pairs.items():
+              t = t.replace(old, new)
+          # download buttons should use raw
+          t = t.replace('download="preces.pdf" href="https://github.com/sergioSHKLR/shklr.org/blob/main/.github/preces.pdf"',
+                        'download="preces.pdf" href="https://raw.githubusercontent.com/sergioSHKLR/shklr.org/main/.github/preces.pdf"')
+          t = t.replace('href="https://github.com/sergioSHKLR/shklr.org/blob/main/.github/preces.pdf" download="preces.pdf"',
+                        'href="https://raw.githubusercontent.com/sergioSHKLR/shklr.org/main/.github/preces.pdf" download="preces.pdf"')
+          t = t.replace('href="https://github.com/sergioSHKLR/shklr.org/blob/main/.github/obras-b%C3%A1sicas.pdf" download="obras-basicas.pdf"',
+                        'href="https://raw.githubusercontent.com/sergioSHKLR/shklr.org/main/.github/obras-b%C3%A1sicas.pdf" download="obras-basicas.pdf"')
+          t = t.replace('href="https://github.com/sergioSHKLR/shklr.org/blob/main/.github/protector-portrait.pdf" download="protector-portrait.pdf"',
+                        'href="https://raw.githubusercontent.com/sergioSHKLR/shklr.org/main/.github/protector-portrait.pdf" download="protector-portrait.pdf"')
+          t = t.replace('href="https://github.com/sergioSHKLR/shklr.org/blob/main/.github/anguish-portrait.pdf" download="anguish-portrait.pdf"',
+                        'href="https://raw.githubusercontent.com/sergioSHKLR/shklr.org/main/.github/anguish-portrait.pdf" download="anguish-portrait.pdf"')
+          p.write_text(t)
+          print('bytes', len(t))
+          PY
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Restore landing page and wire uploaded PDFs
+          file_pattern: index.html
