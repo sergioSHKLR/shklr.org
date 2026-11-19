@@ -1,0 +1,112 @@
+/* SHKLR brand kit — colour tokens (final, approved 19 Nov 2026). Generated; do not hand-edit. */
+:root {
+  --shklr-ink: #111111;
+  --shklr-ink-inverse: #f2f2f2;
+  --shklr-hairline: #cfcfcf;
+  --librus-light-plate: #ffffff;
+  --librus-light-ink: #111111;
+  --librus-light-muted: #646464;
+  --librus-light-glyph-1: #38761d; /* book + spines · 5.56:1 */
+  --librus-dark-plate: #1a1a1a;
+  --librus-dark-ink: #f2f2f2;
+  --librus-dark-muted: #a6a6a6;
+  --librus-dark-glyph-1: #93c47d; /* book + spines · 8.65:1 */
+  --doutrina-light-plate: #ffffff;
+  --doutrina-light-ink: #111111;
+  --doutrina-light-muted: #646464;
+  --doutrina-light-glyph-1: #3c78d8; /* drop outline · 4.31:1 */
+  --doutrina-dark-plate: #1a1a1a;
+  --doutrina-dark-ink: #f2f2f2;
+  --doutrina-dark-muted: #a6a6a6;
+  --doutrina-dark-glyph-1: #6d9eeb; /* drop outline · 6.42:1 */
+  --centro-light-plate: #ffffff;
+  --centro-light-ink: #111111;
+  --centro-light-muted: #646464;
+  --centro-light-glyph-1: #111111; /* house · 18.88:1 */
+  --centro-light-glyph-2: #cc0000; /* heart · 5.89:1 */
+  --centro-dark-plate: #1a1a1a;
+  --centro-dark-ink: #f2f2f2;
+  --centro-dark-muted: #a6a6a6;
+  --centro-dark-glyph-1: #f2f2f2; /* house · 15.55:1 */
+  --centro-dark-glyph-2: #d94040; /* heart · 3.94:1 */
+  --ldeq-light-plate: #ffffff;
+  --ldeq-light-ink: #111111;
+  --ldeq-light-muted: #646464;
+  --ldeq-light-glyph-1: #aa8c2c; /* star, plus, dot · 3.23:1 */
+  --ldeq-dark-plate: #1a1a1a;
+  --ldeq-dark-ink: #f2f2f2;
+  --ldeq-dark-muted: #a6a6a6;
+  --ldeq-dark-glyph-1: #f1c232; /* star, plus, dot · 10.36:1 */
+  --shklr-light-plate: #ffffff;
+  --shklr-light-ink: #111111;
+  --shklr-light-muted: #646464;
+  --shklr-light-glyph-1: #7c3aed; /* ring · 5.7:1 */
+  --shklr-dark-plate: #1a1a1a;
+  --shklr-dark-ink: #f2f2f2;
+  --shklr-dark-muted: #a6a6a6;
+  --shklr-dark-glyph-1: #a78bfa; /* ring · 6.4:1 */
+  --ark-light-plate: #e9dcc0;
+  --ark-light-ink: #111111;
+  --ark-light-muted: #5d584e;
+  --ark-light-glyph-1: #824c24; /* hull + cabin + door · 5.14:1 */
+  --ark-dark-plate: #241f19;
+  --ark-dark-ink: #f2f2f2;
+  --ark-dark-muted: #aaa8a6;
+  --ark-dark-glyph-1: #c08a5a; /* hull + cabin + door · 5.47:1 */
+  --shadowbox-plate: #14233a;
+  --shadowbox-ink: #f2f2f2;
+  --shadowbox-muted: #a4aab2;
+  --shadowbox-glyph-1: #daa520; /* shield + figure · 7.05:1 */
+  --liberdade-plate: #e3c26a;
+  --liberdade-ink: #111111;
+  --liberdade-muted: #5a4f30;
+  --liberdade-glyph-1: #0b1f3a; /* scales + pans (navy only) · 9.59:1 */
+  --vector-light-plate: #e8eaed;
+  --vector-light-ink: #111111;
+  --vector-light-muted: #5c5d5e;
+  --vector-light-glyph-1: #111111; /* curve + end nodes · 15.67:1 */
+  --vector-light-glyph-2: #5a8f43; /* centre node ring · 3.2:1 */
+  --vector-dark-plate: #0d1014;
+  --vector-dark-ink: #f2f2f2;
+  --vector-dark-muted: #a2a3a4;
+  --vector-dark-glyph-1: #f2f2f2; /* curve + end nodes · 17.03:1 */
+  --vector-dark-glyph-2: #6aa84f; /* centre node ring · 6.65:1 */
+  --shooter-plate: #5f6670;
+  --shooter-ink: #f2f2f2;
+  --shooter-muted: #e3e4e5;
+  --shooter-glyph-1: #111111; /* rings + centre outline · 3.26:1 */
+  --shooter-glyph-2: #111111; /* rings vs white face · 18.88:1 */
+  --shooter-app-bg: #0f1115; /* app/theme/OG background; icon plate #5f6670 (3.26:1 vs bg) */
+  --shooter-app-ink: #f2f2f2;
+  --shooter-app-muted: #a3a3a5;
+  --films-plate: #0f1115;
+  --films-ink: #f2f2f2;
+  --films-muted: #a3a3a5;
+  --films-glyph-1: #efe8d6; /* projector reels + body + legs · 15.46:1 */
+  --films-glyph-2: #d06a2b; /* lens + light beam · 5.2:1 */
+  --remote-plate: #2a3038;
+  --remote-ink: #f2f2f2;
+  --remote-muted: #acaeb1;
+  --remote-glyph-1: #d94040; /* signal arcs + IR dome · 3.01:1 */
+  --remote-glyph-2: #9aa0a6; /* remote body · 5.04:1 */
+}
+/* dual-mode apps: map the active scheme */
+.librus { --app-plate: var(--librus-light-plate); --app-ink: var(--librus-light-ink); --app-muted: var(--librus-light-muted); }
+@media (prefers-color-scheme: dark) { .librus { --app-plate: var(--librus-dark-plate); --app-ink: var(--librus-dark-ink); --app-muted: var(--librus-dark-muted); } }
+.doutrina { --app-plate: var(--doutrina-light-plate); --app-ink: var(--doutrina-light-ink); --app-muted: var(--doutrina-light-muted); }
+@media (prefers-color-scheme: dark) { .doutrina { --app-plate: var(--doutrina-dark-plate); --app-ink: var(--doutrina-dark-ink); --app-muted: var(--doutrina-dark-muted); } }
+.centro { --app-plate: var(--centro-light-plate); --app-ink: var(--centro-light-ink); --app-muted: var(--centro-light-muted); }
+@media (prefers-color-scheme: dark) { .centro { --app-plate: var(--centro-dark-plate); --app-ink: var(--centro-dark-ink); --app-muted: var(--centro-dark-muted); } }
+.ldeq { --app-plate: var(--ldeq-light-plate); --app-ink: var(--ldeq-light-ink); --app-muted: var(--ldeq-light-muted); }
+@media (prefers-color-scheme: dark) { .ldeq { --app-plate: var(--ldeq-dark-plate); --app-ink: var(--ldeq-dark-ink); --app-muted: var(--ldeq-dark-muted); } }
+.shklr { --app-plate: var(--shklr-light-plate); --app-ink: var(--shklr-light-ink); --app-muted: var(--shklr-light-muted); }
+@media (prefers-color-scheme: dark) { .shklr { --app-plate: var(--shklr-dark-plate); --app-ink: var(--shklr-dark-ink); --app-muted: var(--shklr-dark-muted); } }
+.ark { --app-plate: var(--ark-light-plate); --app-ink: var(--ark-light-ink); --app-muted: var(--ark-light-muted); }
+@media (prefers-color-scheme: dark) { .ark { --app-plate: var(--ark-dark-plate); --app-ink: var(--ark-dark-ink); --app-muted: var(--ark-dark-muted); } }
+.shadowbox { --app-plate: var(--shadowbox-plate); --app-ink: var(--shadowbox-ink); --app-muted: var(--shadowbox-muted); } /* single mode */
+.liberdade { --app-plate: var(--liberdade-plate); --app-ink: var(--liberdade-ink); --app-muted: var(--liberdade-muted); } /* single mode */
+.vector { --app-plate: var(--vector-light-plate); --app-ink: var(--vector-light-ink); --app-muted: var(--vector-light-muted); }
+@media (prefers-color-scheme: dark) { .vector { --app-plate: var(--vector-dark-plate); --app-ink: var(--vector-dark-ink); --app-muted: var(--vector-dark-muted); } }
+.shooter { --app-plate: var(--shooter-plate); --app-ink: var(--shooter-ink); --app-muted: var(--shooter-muted); } /* single mode */
+.films { --app-plate: var(--films-plate); --app-ink: var(--films-ink); --app-muted: var(--films-muted); } /* single mode */
+.remote { --app-plate: var(--remote-plate); --app-ink: var(--remote-ink); --app-muted: var(--remote-muted); } /* single mode */

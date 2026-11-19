@@ -1,0 +1,428 @@
+{
+ "_note": "SHKLR brand kit final (approved 19 Nov 2026). plate = icon/tile background = app surface it was sampled from; ink/muted = text on that plate; glyph = icon stroke/fill colours with WCAG contrast vs plate.",
+ "apps": {
+  "librus": {
+   "name": "LIBRUS",
+   "mode": "dual",
+   "plates": {
+    "light": {
+     "plate": "#ffffff",
+     "source": "html/body background-color, light (librus.app/library)",
+     "ink": "#111111",
+     "muted": "#646464",
+     "ink_contrast": 18.88,
+     "muted_contrast": 5.92,
+     "glyph": [
+      {
+       "role": "book + spines",
+       "hex": "#38761d",
+       "contrast": 5.56
+      }
+     ]
+    },
+    "dark": {
+     "plate": "#1a1a1a",
+     "source": "html/body background-color, dark",
+     "ink": "#f2f2f2",
+     "muted": "#a6a6a6",
+     "ink_contrast": 15.55,
+     "muted_contrast": 7.15,
+     "glyph": [
+      {
+       "role": "book + spines",
+       "hex": "#93c47d",
+       "contrast": 8.65
+      }
+     ]
+    }
+   },
+   "tagline": "Ache · Leia · Consulte · Anote",
+   "tagline_status": "final"
+  },
+  "doutrina": {
+   "name": "DOUTRINA",
+   "mode": "dual",
+   "plates": {
+    "light": {
+     "plate": "#ffffff",
+     "source": "html/body background-color, light (doutrina.org/library)",
+     "ink": "#111111",
+     "muted": "#646464",
+     "ink_contrast": 18.88,
+     "muted_contrast": 5.92,
+     "glyph": [
+      {
+       "role": "drop outline",
+       "hex": "#3c78d8",
+       "contrast": 4.31
+      }
+     ]
+    },
+    "dark": {
+     "plate": "#1a1a1a",
+     "source": "html/body background-color, dark",
+     "ink": "#f2f2f2",
+     "muted": "#a6a6a6",
+     "ink_contrast": 15.55,
+     "muted_contrast": 7.15,
+     "glyph": [
+      {
+       "role": "drop outline",
+       "hex": "#6d9eeb",
+       "contrast": 6.42
+      }
+     ]
+    }
+   },
+   "tagline": "Ache · Leia · Consulte · Anote",
+   "tagline_status": "final"
+  },
+  "centro": {
+   "name": "CENTRO",
+   "mode": "dual",
+   "plates": {
+    "light": {
+     "plate": "#ffffff",
+     "source": "html/body background-color, light (centro.doutrina.org/library)",
+     "ink": "#111111",
+     "muted": "#646464",
+     "ink_contrast": 18.88,
+     "muted_contrast": 5.92,
+     "glyph": [
+      {
+       "role": "house",
+       "hex": "#111111",
+       "contrast": 18.88
+      },
+      {
+       "role": "heart",
+       "hex": "#cc0000",
+       "contrast": 5.89
+      }
+     ]
+    },
+    "dark": {
+     "plate": "#1a1a1a",
+     "source": "html/body background-color, dark",
+     "ink": "#f2f2f2",
+     "muted": "#a6a6a6",
+     "ink_contrast": 15.55,
+     "muted_contrast": 7.15,
+     "glyph": [
+      {
+       "role": "house",
+       "hex": "#f2f2f2",
+       "contrast": 15.55
+      },
+      {
+       "role": "heart",
+       "hex": "#d94040",
+       "contrast": 3.94
+      }
+     ]
+    }
+   },
+   "tagline": "Ache · Leia · Consulte · Anote · VideoConf",
+   "tagline_status": "final"
+  },
+  "ldeq": {
+   "name": "LDE-Q",
+   "mode": "dual",
+   "plates": {
+    "light": {
+     "plate": "#ffffff",
+     "source": "html/body background-color, light (lde.doutrina.org)",
+     "ink": "#111111",
+     "muted": "#646464",
+     "ink_contrast": 18.88,
+     "muted_contrast": 5.92,
+     "glyph": [
+      {
+       "role": "star, plus, dot",
+       "hex": "#aa8c2c",
+       "contrast": 3.23
+      }
+     ]
+    },
+    "dark": {
+     "plate": "#1a1a1a",
+     "source": "html/body background-color, dark",
+     "ink": "#f2f2f2",
+     "muted": "#a6a6a6",
+     "ink_contrast": 15.55,
+     "muted_contrast": 7.15,
+     "glyph": [
+      {
+       "role": "star, plus, dot",
+       "hex": "#f1c232",
+       "contrast": 10.36
+      }
+     ]
+    }
+   },
+   "tagline": "Pergunta a pergunta",
+   "tagline_status": "final"
+  },
+  "shklr": {
+   "name": "SHKLR",
+   "mode": "dual",
+   "plates": {
+    "light": {
+     "plate": "#ffffff",
+     "source": "body background-color, light (shklr.org)",
+     "ink": "#111111",
+     "muted": "#646464",
+     "ink_contrast": 18.88,
+     "muted_contrast": 5.92,
+     "glyph": [
+      {
+       "role": "ring",
+       "hex": "#7c3aed",
+       "contrast": 5.7
+      }
+     ]
+    },
+    "dark": {
+     "plate": "#1a1a1a",
+     "source": "body background-color, dark",
+     "ink": "#f2f2f2",
+     "muted": "#a6a6a6",
+     "ink_contrast": 15.55,
+     "muted_contrast": 7.15,
+     "glyph": [
+      {
+       "role": "ring",
+       "hex": "#a78bfa",
+       "contrast": 6.4
+      }
+     ]
+    }
+   },
+   "tagline": "Educação moral e ética.",
+   "tagline_status": "final"
+  },
+  "ark": {
+   "name": "ARK",
+   "mode": "dual",
+   "plates": {
+    "light": {
+     "plate": "#e9dcc0",
+     "source": "html background-color, light (sergioshklr.github.io/ark)",
+     "ink": "#111111",
+     "muted": "#5d584e",
+     "ink_contrast": 13.9,
+     "muted_contrast": 5.2,
+     "glyph": [
+      {
+       "role": "hull + cabin + door",
+       "hex": "#824c24",
+       "contrast": 5.14
+      }
+     ]
+    },
+    "dark": {
+     "plate": "#241f19",
+     "source": "html background-color, dark (div.page #1a1612)",
+     "ink": "#f2f2f2",
+     "muted": "#aaa8a6",
+     "ink_contrast": 14.6,
+     "muted_contrast": 6.9,
+     "glyph": [
+      {
+       "role": "hull + cabin + door",
+       "hex": "#c08a5a",
+       "contrast": 5.47
+      }
+     ]
+    }
+   },
+   "tagline": "The Noah Protocol.",
+   "tagline_status": "final"
+  },
+  "shadowbox": {
+   "name": "SHADOWBOX",
+   "mode": "single",
+   "plates": {
+    "dark": {
+     "plate": "#14233a",
+     "source": "header.app-bar background-color (shadowbox.shklr.org)",
+     "ink": "#f2f2f2",
+     "muted": "#a4aab2",
+     "ink_contrast": 14.09,
+     "muted_contrast": 6.74,
+     "glyph": [
+      {
+       "role": "shield + figure",
+       "hex": "#daa520",
+       "contrast": 7.05
+      }
+     ]
+    }
+   },
+   "tagline": "A Navy career, ribbon by ribbon.",
+   "tagline_status": "final"
+  },
+  "liberdade": {
+   "name": "LIBERDADE",
+   "mode": "single",
+   "plates": {
+    "light": {
+     "plate": "#e3c26a",
+     "source": "header.top background-color (liberdade.shklr.org); page body #0b1f3a",
+     "ink": "#111111",
+     "muted": "#5a4f30",
+     "ink_contrast": 10.96,
+     "muted_contrast": 4.7,
+     "glyph": [
+      {
+       "role": "scales + pans (navy only)",
+       "hex": "#0b1f3a",
+       "contrast": 9.59
+      }
+     ]
+    }
+   },
+   "tagline": "A regra tem de valer para todos.",
+   "tagline_status": "final"
+  },
+  "vector": {
+   "name": "VECTOR",
+   "mode": "dual",
+   "plates": {
+    "light": {
+     "plate": "#e8eaed",
+     "source": "div#folio-stage background-color, light (sergioshklr.github.io/gdrew)",
+     "ink": "#111111",
+     "muted": "#5c5d5e",
+     "ink_contrast": 15.67,
+     "muted_contrast": 5.47,
+     "glyph": [
+      {
+       "role": "curve + end nodes",
+       "hex": "#111111",
+       "contrast": 15.67
+      },
+      {
+       "role": "centre node ring",
+       "hex": "#5a8f43",
+       "contrast": 3.2
+      }
+     ]
+    },
+    "dark": {
+     "plate": "#0d1014",
+     "source": "div#folio-stage background-color, dark",
+     "ink": "#f2f2f2",
+     "muted": "#a2a3a4",
+     "ink_contrast": 17.03,
+     "muted_contrast": 7.55,
+     "glyph": [
+      {
+       "role": "curve + end nodes",
+       "hex": "#f2f2f2",
+       "contrast": 17.03
+      },
+      {
+       "role": "centre node ring",
+       "hex": "#6aa84f",
+       "contrast": 6.65
+      }
+     ]
+    }
+   },
+   "tagline": "Local-first vector drawing.",
+   "tagline_status": "final"
+  },
+  "shooter": {
+   "name": "SHOOTER",
+   "mode": "single",
+   "plates": {
+    "dark": {
+     "plate": "#5f6670",
+     "source": "icon plate grey; app/theme/OG background stays live #0f1115",
+     "ink": "#f2f2f2",
+     "muted": "#e3e4e5",
+     "ink_contrast": 5.18,
+     "muted_contrast": 4.56,
+     "glyph": [
+      {
+       "role": "rings + centre outline",
+       "hex": "#111111",
+       "contrast": 3.26
+      },
+      {
+       "role": "rings vs white face",
+       "hex": "#111111",
+       "contrast": 18.88
+      }
+     ]
+    }
+   },
+   "tagline": "Dry-fire trainer.",
+   "tagline_status": "final",
+   "app_background": {
+    "hex": "#0f1115",
+    "ink": "#f2f2f2",
+    "muted": "#a3a3a5",
+    "note": "theme-color, manifest and social-card background; icon plate stays #5f6670",
+    "icon_plate_contrast_vs_bg": 3.26
+   }
+  },
+  "films": {
+   "name": "FILMS",
+   "mode": "single",
+   "plates": {
+    "dark": {
+     "plate": "#0f1115",
+     "source": "shared near-black page bg (was #14160f)",
+     "ink": "#f2f2f2",
+     "muted": "#a3a3a5",
+     "ink_contrast": 16.88,
+     "muted_contrast": 7.5,
+     "glyph": [
+      {
+       "role": "projector reels + body + legs",
+       "hex": "#efe8d6",
+       "contrast": 15.46
+      },
+      {
+       "role": "lens + light beam",
+       "hex": "#d06a2b",
+       "contrast": 5.2
+      }
+     ]
+    }
+   },
+   "tagline": "Militia AV training",
+   "tagline_status": "final"
+  },
+  "remote": {
+   "name": "REMOTE",
+   "mode": "single",
+   "plates": {
+    "dark": {
+     "plate": "#2a3038",
+     "source": "body background-color (= theme-color) (sergioshklr.github.io/remir)",
+     "ink": "#f2f2f2",
+     "muted": "#acaeb1",
+     "ink_contrast": 11.88,
+     "muted_contrast": 5.98,
+     "glyph": [
+      {
+       "role": "signal arcs + IR dome",
+       "hex": "#d94040",
+       "contrast": 3.01
+      },
+      {
+       "role": "remote body",
+       "hex": "#9aa0a6",
+       "contrast": 5.04
+      }
+     ]
+    }
+   },
+   "tagline": "Every remote, one IR blaster.",
+   "tagline_status": "final"
+  }
+ }
+}

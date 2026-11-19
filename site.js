@@ -36,7 +36,7 @@ function applyLang(lang) {
  try { localStorage.setItem(LANG, next); } catch (e) {}
 }
 function paintThemeColor(mode) {
- const bgL = "#fff";
+ const bgL = "#ffffff";
  const bgD = "#1a1a1a";
  const resolved = mode === "dark" || mode === "light"
   ? mode

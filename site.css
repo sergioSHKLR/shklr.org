@@ -84,6 +84,14 @@
  .card.doutrina { border-left-color: var(--doutrina); }
  .card.lde-q { border-left-color: var(--lde); }
  .card.centro { border-left-color: var(--centro); }
+ .card.shklr { border-left-color: var(--shklr); }
+ .card.ark { border-left-color: #c08a5a; }
+ .card.shadowbox { border-left-color: #daa520; }
+ .card.liberdade { border-left-color: #e3c26a; }
+ .card.vector { border-left-color: #6aa84f; }
+ .card.shooter { border-left-color: #5f6670; }
+ .card.films { border-left-color: #d06a2b; }
+ .card.remote { border-left-color: #d94040; }
  .card.nest-1 { margin-left: 1.25rem; }
  .card.nest-2 { margin-left: 2.5rem; }
  .card img.mark { width: 28px; height: 28px; flex: none; margin-top: 2px; }

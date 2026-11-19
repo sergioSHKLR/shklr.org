@@ -1,0 +1,40 @@
+{
+ "ui": {
+  "family": "SHKLR Mono Narrow",
+  "version": "1.000",
+  "weights": "200\u2013800 (variable); statics 400/500/700",
+  "fallback": [
+   "Monaspace Neon",
+   "ui-monospace",
+   "monospace"
+  ]
+ },
+ "wordmark": {
+  "family": "SHKLR Mono Narrow",
+  "weight": 700,
+  "tracking": "0.02em",
+  "case": "upper"
+ },
+ "content": {
+  "family": "system-ui stack",
+  "stack": "system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif"
+ },
+ "content_serif": {
+  "family": "system serif stack",
+  "stack": "ui-serif, Georgia, Cambria, \"Times New Roman\", serif",
+  "replaces": [
+   "Source Serif 4 (SHKLR, SHADOWBOX)",
+   "EB Garamond (ARK)",
+   "Libre Baskerville (WATCHLIST)"
+  ]
+ },
+ "exceptions": {
+  "ark_wordmark": {
+   "family": "Grenze Gotisch",
+   "weight": 400,
+   "text": "Ark",
+   "licence": "OFL-1.1",
+   "files": "fonts/grenze-gotisch/"
+  }
+ }
+}
