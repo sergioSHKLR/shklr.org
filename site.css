@@ -87,6 +87,11 @@
  .card.nest-1 { margin-left: 1.25rem; }
  .card.nest-2 { margin-left: 2.5rem; }
  .card img.mark { width: 28px; height: 28px; flex: none; margin-top: 2px; }
+ /* bare stroke marks (no plate): light-page vs dark-page variant, following the page theme */
+ .card img.mark-l { display: none; }
+ html[data-theme="light"] .card img.mark-l { display: block; }
+ html[data-theme="light"] .card img.mark-d { display: none; }
+ @media (prefers-color-scheme: light) { html[data-theme="sys"] .card img.mark-l { display: block; } html[data-theme="sys"] .card img.mark-d { display: none; } }
  .card strong { display: block; font-family: var(--sans); font-size: 1rem; }
  .legal { font-size: .72rem; line-height: 1.45; color: var(--muted); }
 #settings .settings-meta { margin: 0; }
@@ -105,7 +110,7 @@
   letter-spacing: .1em;
 }
  #bar a:hover { background: rgba(255,255,255,0.12); }
- #bar a img { width: calc(1.35 * 15px); height: calc(1.35 * 15px); }
+ #bar a img { width: 1.35rem; height: 1.35rem; flex: none; } /* bare glyphs, same box as the gear icon */
  @media (max-width: 720px) { #bar a span { display: none; } }
  [hidden] { display: none !important; }
 #mast {
