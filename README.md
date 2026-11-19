@@ -1,6 +1,6 @@
-# SHKLR
+<p align="center" data-brand-icon><picture><source media="(prefers-color-scheme: dark)" srcset="brand-kit/shklr/icons/tile-dark.svg"><img src="brand-kit/shklr/icons/tile-light.svg" alt="SHKLR" width="128" height="128"></picture></p>
 
-<img src="brand-kit/shklr/icons/tile-light.svg" width="48" height="48" alt="SHKLR">
+# SHKLR
 
 Live: https://shklr.org/ · Brand: [brand-kit/](brand-kit/README.md) (SHKLR brand kit, final 19 Nov 2026).
 

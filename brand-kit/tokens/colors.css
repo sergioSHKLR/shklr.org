@@ -3,40 +3,6 @@
   --shklr-ink: #111111;
   --shklr-ink-inverse: #f2f2f2;
   --shklr-hairline: #cfcfcf;
-  --librus-light-plate: #ffffff;
-  --librus-light-ink: #111111;
-  --librus-light-muted: #646464;
-  --librus-light-glyph-1: #38761d; /* book + spines · 5.56:1 */
-  --librus-dark-plate: #1a1a1a;
-  --librus-dark-ink: #f2f2f2;
-  --librus-dark-muted: #a6a6a6;
-  --librus-dark-glyph-1: #93c47d; /* book + spines · 8.65:1 */
-  --doutrina-light-plate: #ffffff;
-  --doutrina-light-ink: #111111;
-  --doutrina-light-muted: #646464;
-  --doutrina-light-glyph-1: #3c78d8; /* drop outline · 4.31:1 */
-  --doutrina-dark-plate: #1a1a1a;
-  --doutrina-dark-ink: #f2f2f2;
-  --doutrina-dark-muted: #a6a6a6;
-  --doutrina-dark-glyph-1: #6d9eeb; /* drop outline · 6.42:1 */
-  --centro-light-plate: #ffffff;
-  --centro-light-ink: #111111;
-  --centro-light-muted: #646464;
-  --centro-light-glyph-1: #111111; /* house · 18.88:1 */
-  --centro-light-glyph-2: #cc0000; /* heart · 5.89:1 */
-  --centro-dark-plate: #1a1a1a;
-  --centro-dark-ink: #f2f2f2;
-  --centro-dark-muted: #a6a6a6;
-  --centro-dark-glyph-1: #f2f2f2; /* house · 15.55:1 */
-  --centro-dark-glyph-2: #d94040; /* heart · 3.94:1 */
-  --ldeq-light-plate: #ffffff;
-  --ldeq-light-ink: #111111;
-  --ldeq-light-muted: #646464;
-  --ldeq-light-glyph-1: #aa8c2c; /* star, plus, dot · 3.23:1 */
-  --ldeq-dark-plate: #1a1a1a;
-  --ldeq-dark-ink: #f2f2f2;
-  --ldeq-dark-muted: #a6a6a6;
-  --ldeq-dark-glyph-1: #f1c232; /* star, plus, dot · 10.36:1 */
   --shklr-light-plate: #ffffff;
   --shklr-light-ink: #111111;
   --shklr-light-muted: #646464;
@@ -47,13 +13,5 @@
   --shklr-dark-glyph-1: #a78bfa; /* ring · 6.4:1 */
 }
 /* dual-mode apps: map the active scheme */
-.librus { --app-plate: var(--librus-light-plate); --app-ink: var(--librus-light-ink); --app-muted: var(--librus-light-muted); }
-@media (prefers-color-scheme: dark) { .librus { --app-plate: var(--librus-dark-plate); --app-ink: var(--librus-dark-ink); --app-muted: var(--librus-dark-muted); } }
-.doutrina { --app-plate: var(--doutrina-light-plate); --app-ink: var(--doutrina-light-ink); --app-muted: var(--doutrina-light-muted); }
-@media (prefers-color-scheme: dark) { .doutrina { --app-plate: var(--doutrina-dark-plate); --app-ink: var(--doutrina-dark-ink); --app-muted: var(--doutrina-dark-muted); } }
-.centro { --app-plate: var(--centro-light-plate); --app-ink: var(--centro-light-ink); --app-muted: var(--centro-light-muted); }
-@media (prefers-color-scheme: dark) { .centro { --app-plate: var(--centro-dark-plate); --app-ink: var(--centro-dark-ink); --app-muted: var(--centro-dark-muted); } }
-.ldeq { --app-plate: var(--ldeq-light-plate); --app-ink: var(--ldeq-light-ink); --app-muted: var(--ldeq-light-muted); }
-@media (prefers-color-scheme: dark) { .ldeq { --app-plate: var(--ldeq-dark-plate); --app-ink: var(--ldeq-dark-ink); --app-muted: var(--ldeq-dark-muted); } }
 .shklr { --app-plate: var(--shklr-light-plate); --app-ink: var(--shklr-light-ink); --app-muted: var(--shklr-light-muted); }
 @media (prefers-color-scheme: dark) { .shklr { --app-plate: var(--shklr-dark-plate); --app-ink: var(--shklr-dark-ink); --app-muted: var(--shklr-dark-muted); } }
