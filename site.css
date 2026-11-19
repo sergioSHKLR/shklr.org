@@ -1,10 +1,11 @@
+@font-face { font-family: "SHKLR Mono Narrow"; src: url("/fonts/SHKLRMonoNarrow[wght].woff2") format("woff2"); font-weight: 200 800; font-display: swap; }
  :root, html[data-theme="dark"] {
  color-scheme: dark;
  --bg: #1a1a1a; --fg: #f0f0f0; --muted: #a0a0a0; --line: #333; --lift: #242424;
  --librus: #6aa84f; --doutrina: #3c78d8; --centro: #cc0000; --lde: #d4af37; --shklr: #8b5cf6; --brand: #8b5cf6;
  --bar: #000; --bar-fg: #fff; --border: #444;
- --sans: "Quicksand", system-ui, sans-serif;
- --serif: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+ --sans: "SHKLR Mono Narrow", "Monaspace Neon", ui-monospace, monospace;
+ --serif: ui-serif, Georgia, Cambria, "Times New Roman", serif;
  --hand: "Zeyada", cursive;
  --chrome: 50px; --ctrl-h: 50px;
  --safe-bottom: env(safe-area-inset-bottom, 0px);
