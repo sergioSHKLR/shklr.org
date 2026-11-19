@@ -2,7 +2,7 @@
  "ui": {
   "family": "SHKLR Mono Narrow",
   "version": "1.000",
-  "weights": "200\u2013800 (variable); statics 400/500/700",
+  "weights": "200–800 (variable); statics 400/500/700",
   "fallback": [
    "Monaspace Neon",
    "ui-monospace",
@@ -23,18 +23,7 @@
   "family": "system serif stack",
   "stack": "ui-serif, Georgia, Cambria, \"Times New Roman\", serif",
   "replaces": [
-   "Source Serif 4 (SHKLR, SHADOWBOX)",
-   "EB Garamond (ARK)",
-   "Libre Baskerville (WATCHLIST)"
+   "Source Serif 4 (SHKLR)"
   ]
- },
- "exceptions": {
-  "ark_wordmark": {
-   "family": "Grenze Gotisch",
-   "weight": 400,
-   "text": "Ark",
-   "licence": "OFL-1.1",
-   "files": "fonts/grenze-gotisch/"
-  }
  }
 }
