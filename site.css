@@ -1,10 +1,12 @@
-@font-face { font-family: "SHKLR Mono Narrow"; src: url("/fonts/SHKLRMonoNarrow[wght].woff2") format("woff2"); font-weight: 200 800; font-display: swap; }
+@font-face { font-family: "Martian Mono"; src: url("/fonts/MartianMono-Condensed[wght].woff2") format("woff2"); font-weight: 100 800; font-style: normal; font-display: swap; }
  :root, html[data-theme="dark"] {
  color-scheme: dark;
  --bg: #1a1a1a; --fg: #f0f0f0; --muted: #a0a0a0; --line: #333; --lift: #242424;
  --librus: #6aa84f; --doutrina: #3c78d8; --centro: #cc0000; --lde: #d4af37; --shklr: #8b5cf6; --brand: #8b5cf6;
  --bar: #000; --bar-fg: #fff; --border: #444;
- --sans: "SHKLR Mono Narrow", "Monaspace Neon", ui-monospace, monospace;
+ --font-brand: "Martian Mono", ui-monospace, monospace;
+ --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+ --sans: var(--font-ui);
  --serif: ui-serif, Georgia, Cambria, "Times New Roman", serif;
  --hand: "Zeyada", cursive;
  --chrome: 50px; --ctrl-h: 50px;
@@ -126,7 +128,7 @@ html[data-theme="dark"] #mast { background: #111; color: #f0f0f0; border-bottom-
 }
 #mast .library-mark { width: calc(3.5 * 15px); height: calc(3.5 * 15px); color: var(--brand); display: flex; align-items: center; justify-content: center; }
 #mast .library-mark svg { width: calc(3.5 * 15px); height: calc(3.5 * 15px); }
-#mast h1 { margin: 0; font-family: var(--sans); font-size: calc(1.35 * 15px); font-weight: 700; letter-spacing: 0.1em; line-height: 1.2; color: var(--fg); }
+#mast h1 { margin: 0; font-family: var(--font-brand); font-size: calc(1.35 * 15px); font-weight: 700; letter-spacing: 0.1em; line-height: 1.2; color: var(--fg); }
 #mast .library-cta { margin: 0; font-size: calc(0.9 * 15px); line-height: 1.35; color: #555; font-weight: 400; }
 html[data-theme="dark"] #mast .library-cta { color: #a0a0a0; }
 @media (prefers-color-scheme: dark) { html[data-theme="sys"] #mast .library-cta { color: #a0a0a0; } }

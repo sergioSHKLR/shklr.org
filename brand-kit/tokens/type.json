@@ -1,23 +1,34 @@
 {
- "ui": {
-  "family": "SHKLR Mono Narrow",
+ "brand": {
+  "token": "--font-brand",
+  "family": "Martian Mono",
   "version": "1.000",
-  "weights": "200–800 (variable); statics 400/500/700",
+  "width": "condensed (wdth 75, pinned)",
+  "weights": "100–800 (variable); statics 400/500/700",
+  "licence": "OFL-1.1",
+  "files": "fonts/martian-mono/",
+  "use": "wordmarks, logo text, brand titles/headings",
   "fallback": [
-   "Monaspace Neon",
    "ui-monospace",
    "monospace"
-  ]
+  ],
+  "replaces": "SHKLR Mono Narrow 1.000 (retired 22 Nov 2026)"
+ },
+ "ui": {
+  "token": "--font-ui",
+  "family": "system-ui stack",
+  "stack": "system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+  "use": "controls, nav, labels, body UI text; no webfont"
  },
  "wordmark": {
-  "family": "SHKLR Mono Narrow",
+  "family": "Martian Mono",
   "weight": 700,
   "tracking": "0.02em",
   "case": "upper"
  },
  "content": {
   "family": "system-ui stack",
-  "stack": "system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif"
+  "stack": "var(--font-ui)"
  },
  "content_serif": {
   "family": "system serif stack",

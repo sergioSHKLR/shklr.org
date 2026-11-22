@@ -1,5 +1,5 @@
 {
- "_note": "SHKLR brand kit final (approved 19 Nov 2026). plate = icon/tile background = app surface it was sampled from; ink/muted = text on that plate; glyph = icon stroke/fill colours with WCAG contrast vs plate.",
+ "_note": "SHKLR brand kit rev 4 (22 Nov 2026; rev 3 approved 19 Nov 2026). plate = icon/tile background = app surface it was sampled from; ink/muted = text on that plate; glyph = icon stroke/fill colours with WCAG contrast vs plate.",
  "apps": {
   "shklr": {
    "name": "SHKLR",
